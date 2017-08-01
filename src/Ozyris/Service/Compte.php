@@ -40,24 +40,20 @@ class Compte extends AbstractService
     }
 
     /**
-     * @param int $montant
-     */
-    public function depot($montant)
-    {
-        $this->oMouvement->addMouvement(self::DEPOT, (int) $montant);
-        $this->setSolde($this->getSolde() + $montant);
-    }
-
-    /**
+     * @param string $type
      * @param int $montant
      * @param string $ordre
      */
-    public function retrait($montant, $ordre = '')
+    public function addMouvement($type, $montant, $ordre = '')
     {
-        $this->oMouvement->addMouvement(self::RETRAIT, (int) $montant, $ordre);
-        $this->setSolde($this->getSolde() - $montant);
-    }
+        if ($type == self::DEPOT) {
+            $this->setSolde($this->getSolde() + $montant);
+        } else {
+            $this->setSolde($this->getSolde() - $montant);
+        }
 
+        $this->oMouvement->addMouvement($type, (int) $montant, $this->getId(), $ordre);
+    }
 
     /**
      * @return mixed

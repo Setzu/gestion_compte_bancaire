@@ -13,8 +13,8 @@
         <div class="form-group">
             <label for="type">Type du mouvement :
                 <select name="type" class="form-control">
-                    <option value="Retrait">Dépense / Retrait</option>
-                    <option value="Depot">Dépôt</option>
+                    <option value="retrait">Dépense / Retrait</option>
+                    <option value="depot">Dépôt</option>
                 </select>
             </label>
         </div>

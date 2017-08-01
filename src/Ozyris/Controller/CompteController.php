@@ -64,14 +64,13 @@ class CompteController extends AbstractController
                 return $this->redirect();
             }
 
+            $sType = (string) htmlspecialchars(trim($_POST['type']));
+            $iMontant = (int) htmlspecialchars(trim($_POST['montant']));
+            $sOrdre = (string) htmlspecialchars(trim($_POST['ordre']));
+
             $oCompte = new Compte();
             $oCompte->createCompte($aInfosCompte);
-
-            if ($_POST['type'] == 'Depot') {
-                $oCompte->depot($_POST['montant']);
-            } else {
-                $oCompte->retrait($_POST['montant'], $_POST['ordre']);
-            }
+            $oCompte->addMouvement($sType, $iMontant, $sOrdre);
 
             $oMouvementModel = new MouvementModel();
             $oMouvementModel->insertMouvement($oCompte->getMouvement());
@@ -79,6 +78,42 @@ class CompteController extends AbstractController
 
             $this->setFlashMessage('Le mouvement a bien été renseigné.', false);
         }
+
+        return $this->redirect();
+    }
+
+    public function updateAction()
+    {
+        if ($_POST) {
+
+        } else {
+            $iId = str_replace('$', '', urldecode($_GET['param']));
+
+            if ($iId === '') {
+                return $this->redirect();
+            }
+
+            $oCompteModel = new CompteModel();
+            $aInfosCompte = $oCompteModel->selectCompteById($iId);
+            $oCompte = new Compte();
+            $oCompte->createCompte($aInfosCompte);
+
+            $this->setVariables(['compte' => $oCompte]);
+
+            return $this->render('compte', 'update');
+        }
+
+        return $this->redirect();
+    }
+
+    public function deleteAction()
+    {
+        $iId = str_replace('$', '', urldecode($_GET['param']));
+
+        $oCompteModel = new CompteModel();
+        $oCompteModel->deleteCompteById($iId);
+
+        $this->setFlashMessage('Le compte a bien été supprimé.', false);
 
         return $this->redirect();
     }

@@ -12,22 +12,58 @@ namespace Ozyris\Service;
 class Mouvement extends AbstractService
 {
 
+    protected $id;
+    protected $idCompte;
     protected $type;
     protected $montant;
     protected $ordre;
     protected $date;
+
 
     /**
      * @param string $type
      * @param int $montant
      * @param string $ordre
      */
-    public function addMouvement($type, $montant, $ordre = '')
+    public function addMouvement($type, $montant, $idCompte, $ordre = '')
     {
+        $this->setIdCompte((int) $idCompte);
         $this->setType($type);
         $this->setMontant((int) $montant);
         $this->setDate(new \DateTime());
         $this->setOrdre($ordre);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdCompte()
+    {
+        return $this->idCompte;
+    }
+
+    /**
+     * @param mixed $idCompte
+     */
+    public function setIdCompte($idCompte)
+    {
+        $this->idCompte = $idCompte;
     }
 
     /**

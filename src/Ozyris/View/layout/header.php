@@ -7,11 +7,6 @@
  */
 ?>
     <div class="row">
-        <div class="col-md-offset-6">
-            <a href="/index" class="btn btn-primary">Accueil</a>
-        </div>
+        <a href="/index" class="btn btn-default">Accueil</a>
     </div>
-
-
 <hr>
-

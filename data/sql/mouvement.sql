@@ -2,6 +2,7 @@ DROP TABLE mouvement;
 
 CREATE TABLE IF NOT EXISTS mouvement (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  id_compte INT NOT NULL,
   type_mouvement CHAR(7) NOT NULL,
   montant INT NOT NULL,
   ordre CHAR(50),

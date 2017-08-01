@@ -20,14 +20,16 @@ class MouvementModel extends AbstractModel
      */
     public function insertMouvement(Mouvement $oMouvement)
     {
-        $sql = "INSERT INTO mouvement (type_mouvement, montant, ordre) VALUES (:type_mouvement, :montant, :ordre)";
+        $sql = "INSERT INTO mouvement (id_compte, type_mouvement, montant, ordre) VALUES (:id_compte, :type_mouvement, :montant, :ordre)";
         $stmt = $this->bdd->prepare($sql);
 
+        $iIdCompte = $oMouvement->getIdCompte();
         $sTypeMouvement = $oMouvement->getType();
         $iMontant = $oMouvement->getMontant();
         $sOrdre = $oMouvement->getOrdre();
 
         try {
+            $stmt->bindParam(':id_compte', $iIdCompte);
             $stmt->bindParam(':type_mouvement', $sTypeMouvement);
             $stmt->bindParam(':montant', $iMontant);
             $stmt->bindParam(':ordre', $sOrdre);

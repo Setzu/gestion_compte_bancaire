@@ -202,4 +202,54 @@ class CompteModel extends AbstractModel
 
         return $stmt->closeCursor();
     }
+
+    public function updateCompteName($id, $name)
+    {
+        $sql = "UPDATE compte SET nom = :nom WHERE id = :id";
+
+        $stmt = $this->bdd->prepare($sql);
+        $iId = (int) $id;
+        $sName = (string) $name;
+
+        try {
+            $stmt->bindParam(':id', $iId);
+            $stmt->bindParam(':name', $sName);
+
+            if (!$stmt->execute()) {
+//                $aSqlErrors = $stmt->errorInfo();
+                throw new \Exception(self::SQL_ERROR);
+            }
+
+        } catch (\Exception $e) {
+            die($e->getMessage());
+        }
+
+        return $stmt->closeCursor();
+    }
+
+    /**
+     * @param int $id
+     * @return bool
+     */
+    public function deleteCompteById($id)
+    {
+        $sql = "DELETE compte WHERE id = :id";
+
+        $stmt = $this->bdd->prepare($sql);
+        $iId = (int) $id;
+
+        try {
+            $stmt->bindParam(':id', $iId);
+
+            if (!$stmt->execute()) {
+//                $aSqlErrors = $stmt->errorInfo();
+                throw new \Exception(self::SQL_ERROR);
+            }
+
+        } catch (\Exception $e) {
+            die($e->getMessage());
+        }
+
+        return $stmt->closeCursor();
+    }
 }
