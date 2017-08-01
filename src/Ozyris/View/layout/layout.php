@@ -27,13 +27,6 @@ $oIndexController = new IndexController();
 <header>
     <div class="container">
         <?php include_once (__DIR__ . '/header.php'); ?>
-        <div class="row">
-            <div class="col-md-12">
-                <div class="bandeau">
-                    <a href="/">Accueil</a>
-                </div>
-            </div>
-        </div>
     </div>
 </header>
 

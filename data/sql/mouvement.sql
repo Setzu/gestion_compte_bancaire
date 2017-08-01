@@ -2,8 +2,8 @@ DROP TABLE mouvement;
 
 CREATE TABLE IF NOT EXISTS mouvement (
   id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-  type_mouvement CHAR(5) NOT NULL,
+  type_mouvement CHAR(7) NOT NULL,
   montant INT NOT NULL,
-  ordre CHAR(50) NOT NULL,
-  date_mouvement TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  ordre CHAR(50),
+  date_mouvement TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;

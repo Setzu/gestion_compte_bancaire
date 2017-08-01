@@ -11,15 +11,53 @@ namespace Ozyris\Service;
 
 class Compte extends AbstractService
 {
+    const DEPOT = 'depot';
+    const RETRAIT = 'retrait';
+
     protected $id;
     protected $nom;
-    protected $numéro;
+    protected $numero;
     protected $solde;
+    protected $lastModification;
+    private $oMouvement;
 
+    /**
+     * Injection de Mouvement
+     *
+     * Compte constructor.
+     */
+    public function __construct()
+    {
+        $this->setMouvement(new Mouvement());
+    }
+
+    /**
+     * @param array $aInfos
+     */
     public function createCompte(array $aInfos)
     {
         $this->hydrate($this, $aInfos);
     }
+
+    /**
+     * @param int $montant
+     */
+    public function depot($montant)
+    {
+        $this->oMouvement->addMouvement(self::DEPOT, (int) $montant);
+        $this->setSolde($this->getSolde() + $montant);
+    }
+
+    /**
+     * @param int $montant
+     * @param string $ordre
+     */
+    public function retrait($montant, $ordre = '')
+    {
+        $this->oMouvement->addMouvement(self::RETRAIT, (int) $montant, $ordre);
+        $this->setSolde($this->getSolde() - $montant);
+    }
+
 
     /**
      * @return mixed
@@ -56,17 +94,17 @@ class Compte extends AbstractService
     /**
      * @return mixed
      */
-    public function getNuméro()
+    public function getNumero()
     {
-        return $this->numéro;
+        return $this->numero;
     }
 
     /**
-     * @param mixed $numéro
+     * @param mixed $numero
      */
-    public function setNuméro($numéro)
+    public function setNumero($numero)
     {
-        $this->numéro = $numéro;
+        $this->numero = $numero;
     }
 
     /**
@@ -83,6 +121,38 @@ class Compte extends AbstractService
     public function setSolde($solde)
     {
         $this->solde = $solde;
+    }
+
+    /**
+     * @return Mouvement
+     */
+    public function getMouvement()
+    {
+        return $this->oMouvement;
+    }
+
+    /**
+     * @param Mouvement $oMouvement
+     */
+    public function setMouvement($oMouvement)
+    {
+        $this->oMouvement = $oMouvement;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastModification()
+    {
+        return $this->lastModification;
+    }
+
+    /**
+     * @param mixed $lastModification
+     */
+    public function setLastModification($lastModification)
+    {
+        $this->lastModification = $lastModification;
     }
 
 }

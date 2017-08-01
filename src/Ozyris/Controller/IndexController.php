@@ -8,16 +8,13 @@
 
 namespace Ozyris\Controller;
 
+use Ozyris\Model\CompteModel;
+use Ozyris\Service\Compte;
 use Ozyris\Service\Users;
 
 class IndexController extends AuthentificationController
 {
 
-    /**
-     * Affichage de la vue index
-     *
-     * @return mixed
-     */
     public function indexAction()
     {
         if ($this->getUser() instanceof Users) {
@@ -28,6 +25,18 @@ class IndexController extends AuthentificationController
             'user' => $this->getUser(),
             'isAuth' => $this->isAuthentified
         ]);
+
+        $aCompte = [];
+        $oCompteModel = new CompteModel();
+        $aInfosCompte = $oCompteModel->selectAllCompte();
+
+        foreach ($aInfosCompte as $compte) {
+            $oCompte = new Compte();
+            $oCompte->createCompte($compte);
+            $aCompte[] = $oCompte;
+        }
+
+        $this->setVariables(['aListeComptes' => $aCompte]);
 
         return $this->render();
     }

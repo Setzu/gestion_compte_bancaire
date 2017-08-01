@@ -12,11 +12,16 @@ namespace Ozyris\Service;
 class AbstractService
 {
 
+    /**
+     * @param AbstractService $oClasse
+     * @param array $aInfos
+     * @throws \Exception
+     */
     public function hydrate(AbstractService $oClasse, array $aInfos)
     {
         foreach($aInfos as $attribut => $value) {
 
-            $method = 'set' . ucfirst(strtolower($attribut));
+            $method = 'set' . str_replace('_', '', ucfirst(strtolower($attribut)));
 
             if (!method_exists($oClasse, $method)) {
                 throw new \Exception('La méthode set' . ucfirst(strtolower($attribut)) . ' de la classe ' .
@@ -25,7 +30,5 @@ class AbstractService
 
             $oClasse->$method($value);
         }
-
-        return $this;
     }
 }
