@@ -203,6 +203,11 @@ class CompteModel extends AbstractModel
         return $stmt->closeCursor();
     }
 
+    /**
+     * @param $id
+     * @param $name
+     * @return bool
+     */
     public function updateCompteName($id, $name)
     {
         $sql = "UPDATE compte SET nom = :nom WHERE id = :id";
@@ -233,8 +238,7 @@ class CompteModel extends AbstractModel
      */
     public function deleteCompteById($id)
     {
-        $sql = "DELETE compte WHERE id = :id";
-
+        $sql = "DELETE FROM compte WHERE id = :id";
         $stmt = $this->bdd->prepare($sql);
         $iId = (int) $id;
 

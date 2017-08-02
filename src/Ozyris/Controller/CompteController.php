@@ -85,7 +85,8 @@ class CompteController extends AbstractController
     public function updateAction()
     {
         if ($_POST) {
-
+            // @TODO : TEST
+            exit;
         } else {
             $iId = str_replace('$', '', urldecode($_GET['param']));
 

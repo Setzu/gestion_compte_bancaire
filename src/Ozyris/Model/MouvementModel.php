@@ -48,7 +48,6 @@ class MouvementModel extends AbstractModel
     public function selectMouvementById($value)
     {
         $sql = "SELECT * FROM mouvement WHERE id = :id";
-
         $stmt = $this->bdd->prepare($sql);
         $iId = (int) $value;
 
@@ -68,13 +67,36 @@ class MouvementModel extends AbstractModel
     }
 
     /**
+     * @param int $compteId
+     * @return array
+     */
+    public function selectAllMouvementsByCompteId($compteId)
+    {
+        $sql = "SELECT * FROM mouvement WHERE id_compte = :id_compte";
+        $stmt = $this->bdd->prepare($sql);
+
+        try {
+            $stmt->bindParam(':id_compte', $compteId);
+
+            if (!$stmt->execute()) {
+//                $aSqlErrors = $stmt->errorInfo();
+                throw new \Exception(self::SQL_ERROR);
+            }
+
+        } catch (\Exception $e) {
+            die($e->getMessage());
+        }
+
+        return $stmt->fetchAll(\PDO::FETCH_ASSOC);
+    }
+
+    /**
      * @param string $value
      * @return array
      */
     public function selectAllMouvementsByOrdre($value)
     {
         $sql = "SELECT * FROM mouvement WHERE ordre = :ordre";
-
         $stmt = $this->bdd->prepare($sql);
         $sOrdre = (string) $value;
 
@@ -100,7 +122,6 @@ class MouvementModel extends AbstractModel
     public function selectAllMouvementsByMontant($value)
     {
         $sql = "SELECT * FROM mouvement WHERE montant = :montant";
-
         $stmt = $this->bdd->prepare($sql);
         $iMontant = (int) $value;
 

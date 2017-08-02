@@ -10,16 +10,15 @@ use Ozyris\Controller\IndexController;
 
 $oIndexController = new IndexController();
 ?>
-
+<!DOCTYPE html>
+<title>Gestion de compte bancaire</title>
 <html>
 
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/global.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="<?php echo __DIR__ . '/../../../../public/css/layout.css';?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo __DIR__ . '/../../../../public/css/header.css';?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo __DIR__ . '/../../../../public/css/form.css';?>">
-    <link rel="stylesheet" type="text/css" href="<?php echo __DIR__ . '/../../../../public/css/element.css';?>">
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 </head>
 
 <body>

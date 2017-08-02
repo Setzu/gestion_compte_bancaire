@@ -9,34 +9,30 @@
 namespace Ozyris\Controller;
 
 use Ozyris\Model\CompteModel;
+use Ozyris\Model\MouvementModel;
 use Ozyris\Service\Compte;
-use Ozyris\Service\Users;
 
 class IndexController extends AuthentificationController
 {
 
     public function indexAction()
     {
-        if ($this->getUser() instanceof Users) {
-            $this->isAuthentified = true;
-        }
-
-        $this->setVariables([
-            'user' => $this->getUser(),
-            'isAuth' => $this->isAuthentified
-        ]);
-
-        $aCompte = [];
+        $aComptes = $aMouvements = [];
         $oCompteModel = new CompteModel();
         $aInfosCompte = $oCompteModel->selectAllCompte();
+        $oMouvementModel = new MouvementModel();
 
         foreach ($aInfosCompte as $compte) {
             $oCompte = new Compte();
             $oCompte->createCompte($compte);
-            $aCompte[] = $oCompte;
+            $aComptes[] = $oCompte;
+            $aMouvements[$oCompte->getId()] = $oMouvementModel->selectAllMouvementsByCompteId($oCompte->getId());
         }
 
-        $this->setVariables(['aListeComptes' => $aCompte]);
+        $this->setVariables([
+            'aListeComptes' => $aComptes,
+            'aListeMouvements' => $aMouvements
+        ]);
 
         return $this->render();
     }
