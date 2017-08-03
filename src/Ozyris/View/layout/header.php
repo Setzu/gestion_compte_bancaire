@@ -7,6 +7,6 @@
  */
 ?>
     <div class="row">
-        <a href="/index" class="btn btn-default">Accueil</a>
+        <a href="/index" class="btn btn-success">Accueil</a>
     </div>
 <hr>

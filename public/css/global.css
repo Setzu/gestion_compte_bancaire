@@ -4,3 +4,9 @@ table.dataTable thead th, table.dataTable thead td, table.dataTable.no-footer {
 .display-none {
     display: none;
 }
+tr.depot > td {
+    background-color: #d9edf7;
+}
+tr.retrait > td {
+    background-color: #fcf8e3;
+}

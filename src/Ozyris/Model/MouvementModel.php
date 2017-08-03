@@ -139,4 +139,45 @@ class MouvementModel extends AbstractModel
 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);
     }
+
+    public function deleteMouvementById($id)
+    {
+        $sql = 'DELETE FROM mouvement WHERE id = :id';
+        $stmt = $this->bdd->prepare($sql);
+        $id = (int) $id;
+
+        try {
+            $stmt->bindParam(':id', $id);
+
+            if (!$stmt->execute()) {
+//                $aSqlErrors = $stmt->errorInfo();
+                throw new \Exception(self::SQL_ERROR);
+            }
+
+        } catch (\Exception $e) {
+            die($e->getMessage());
+        }
+        return $stmt->closeCursor();
+    }
+
+    public function deleteAllMouvementsByCompteId($compteId)
+    {
+        $sql = 'DELETE FROM mouvement WHERE id_compte = :id_compte';
+        $stmt = $this->bdd->prepare($sql);
+        $iCompteId = (int) $compteId;
+
+        try {
+            $stmt->bindParam(':id_compte', $iCompteId);
+
+            if (!$stmt->execute()) {
+//                $aSqlErrors = $stmt->errorInfo();
+                throw new \Exception(self::SQL_ERROR);
+            }
+
+        } catch (\Exception $e) {
+            die($e->getMessage());
+        }
+
+        return $stmt->closeCursor();
+    }
 }

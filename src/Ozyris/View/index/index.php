@@ -42,7 +42,7 @@ if (count($this->aListeComptes) == 0) {
             foreach($this->aListeComptes as $oCompte) { ?>
                 <tr>
                     <td>
-                        <a href="compte/update/<?= urlencode('$' . $oCompte->getId()); ?>">
+                        <a href="compte/updateCompte/<?= urlencode('$' . $oCompte->getId()); ?>">
                             <span  class="glyphicon glyphicon-pencil"></span>
                         </a>
                     </td>
@@ -55,29 +55,50 @@ if (count($this->aListeComptes) == 0) {
                         </a>
                     </td>
                     <td class="display-none">
-                        <p>Historique des mouvements</p>
-                        <table>
-                            <thead>
-                            <tr>
-                                <th>Type du mouvement</th>
-                                <th>Montant</th>
-                                <th>Ordre</th>
-                                <th>Date</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <?php foreach ($this->aListeMouvements as $compte => $aMouvements) { ?>
-                                <?php foreach ($aMouvements as $mouvement) { ?>
-                                    <tr>
-                                        <td><?= $mouvement['type_mouvement'] ;?></td>
+                        <h4>Historique des mouvements</h4>
+                        <?php if (count($this->aListeMouvements[$oCompte->getId()]) == 0) { ?>
+                            <p>Vous n'avez pas de mouvement associé à ce compte.</p>
+                            <p>Pour en ajouter, cliquer sur
+                                <a href="compte/mouvement/<?= urlencode('$' . $oCompte->getId()); ?>">
+                                    <span class="glyphicon glyphicon-plus"></span>
+                                </a>
+                            </p>
+                        <?php } else { ?>
+                            <table class="table" id="mouvement">
+                                <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Type du mouvement</th>
+                                    <th>Montant</th>
+                                    <th>Ordre</th>
+                                    <th>Date</th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <?php
+                                foreach ($this->aListeMouvements[$oCompte->getId()] as $mouvement) { ?>
+                                    <tr class="<?= $mouvement['type_mouvement'];?>">
+                                        <td>
+                                            <a href="compte/updateMouvement/<?= urlencode('$' . $mouvement['id']); ?>">
+                                                <span class="glyphicon glyphicon-pencil"></span>
+                                            </a>
+                                        </td>
+                                        <td><?= ucfirst(strtolower($mouvement['type_mouvement'])) ;?></td>
                                         <td><?= $mouvement['montant'] . '€' ;?></td>
                                         <td><?= $mouvement['ordre'] ;?></td>
                                         <td><?= $mouvement['date_mouvement'] ;?></td>
+                                        <td>
+                                            <a href="/compte/deleteMouvement/<?= urlencode('$' . $mouvement['id']); ?>"
+                                               onClick="return ConfirmMessage();">
+                                                <span class="glyphicon glyphicon-remove" style="color:#ff0000"></span>
+                                            </a>
+                                        </td>
                                     </tr>
                                 <?php } ?>
-                            <?php } ?>
-                            </tbody>
-                        </table>
+                                </tbody>
+                            </table>
+                        <?php } ?>
                     </td>
                 </tr>
             <?php } ?>
@@ -87,3 +108,12 @@ if (count($this->aListeComptes) == 0) {
         <p><span class="glyphicon glyphicon-plus"></span> : Ajouter un mouvement</p>
     </div>
 <?php } ?>
+
+<script type="text/javascript">
+    /**
+     * @return {boolean}
+     */
+    function ConfirmMessage() {
+        return !!confirm('Voulez-vous supprimer le mouvement associer au compte ?');
+    }
+</script>

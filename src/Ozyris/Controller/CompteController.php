@@ -18,7 +18,7 @@ class CompteController extends AbstractController
 
     public function indexAction()
     {
-        if ($_POST) {
+        if (isset($_POST)) {
             $aInfosCompte = [];
             $aInfosCompte['nom'] = (string) htmlspecialchars(trim($_POST['name']));
             $aInfosCompte['number'] = (int) htmlspecialchars(trim($_POST['number']));
@@ -31,6 +31,36 @@ class CompteController extends AbstractController
         }
 
         return $this->render('compte');
+    }
+
+    public function updateCompteAction()
+    {
+        $iId = str_replace('$', '', urldecode($_GET['param']));
+
+        if ($iId === '') {
+            return $this->redirect();
+        }
+
+        $oCompteModel = new CompteModel();
+        $aInfosCompte = $oCompteModel->selectCompteById($iId);
+        $oCompte = new Compte();
+        $oCompte->createCompte($aInfosCompte);
+
+        if (!empty($_POST)) {
+            $aUpdateCompte = [];
+            $aUpdateCompte['nom'] = (string) htmlspecialchars(trim($_POST['name']));
+            $aUpdateCompte['number'] = (int) htmlspecialchars(trim($_POST['number']));
+            $aUpdateCompte['solde'] = (int) htmlspecialchars(trim($_POST['solde']));
+
+            $aModif = array_diff($aInfosCompte, $aUpdateCompte);
+            echo'<pre>';var_dump($aModif);die;
+        } else {
+            $this->setVariables(['compte' => $oCompte]);
+
+            return $this->render('compte', 'update');
+        }
+
+        return $this->redirect();
     }
 
     public function mouvementAction()
@@ -82,11 +112,25 @@ class CompteController extends AbstractController
         return $this->redirect();
     }
 
-    public function updateAction()
+    public function deleteAction()
     {
-        if ($_POST) {
+        $iId = str_replace('$', '', urldecode($_GET['param']));
+
+        $oCompteModel = new CompteModel();
+        $oMouvementModel = new MouvementModel();
+        $oCompteModel->deleteCompteById($iId);
+        $oMouvementModel->deleteAllMouvementsByCompteId($iId);
+
+        $this->setFlashMessage('Le compte a bien été supprimé.', false);
+
+        return $this->redirect();
+    }
+
+    public function updateMouvementAction()
+    {
+        if (isset($_POST)) {
+            exit('test');
             // @TODO : TEST
-            exit;
         } else {
             $iId = str_replace('$', '', urldecode($_GET['param']));
 
@@ -94,27 +138,24 @@ class CompteController extends AbstractController
                 return $this->redirect();
             }
 
-            $oCompteModel = new CompteModel();
-            $aInfosCompte = $oCompteModel->selectCompteById($iId);
-            $oCompte = new Compte();
-            $oCompte->createCompte($aInfosCompte);
+            $oMouvementModel = new MouvementModel();
+            $aMouvement = $oMouvementModel->selectMouvementById($iId);
+            $this->setVariables(['mouvement' => $aMouvement]);
 
-            $this->setVariables(['compte' => $oCompte]);
-
-            return $this->render('compte', 'update');
+            return $this->render('compte', 'updateMouvement');
         }
 
         return $this->redirect();
     }
 
-    public function deleteAction()
+    public function deleteMouvementAction()
     {
         $iId = str_replace('$', '', urldecode($_GET['param']));
 
-        $oCompteModel = new CompteModel();
-        $oCompteModel->deleteCompteById($iId);
+        $oMouvementModel = new MouvementModel();
+        $oMouvementModel->deleteMouvementById($iId);
 
-        $this->setFlashMessage('Le compte a bien été supprimé.', false);
+        $this->setFlashMessage('Le mouvement a bien été supprimé.', false);
 
         return $this->redirect();
     }

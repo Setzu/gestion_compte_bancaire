@@ -1,6 +1,11 @@
-# Ozyris
-Mini framework avec système d'authentification en PHP 5.6
+# Gestion de comptes bancaire
 
-Design Pattern MVC
+Fonctionnalités principales :
+- Ajout de comptes
+- Modification / suppression de comptes
+- Ajout de mouvements (dépots / retraits / prélèvements automatique)
+- Modification / suppression de mouvements
+- Datatable pour l'affichage des comptes avec détail sur chaques comptes 
+contenant la liste des mouvements.
 
-En cours de développement, mais déjà fonctionnel :)
+A venir : l'ajout des prélèvement automatique

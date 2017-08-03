@@ -8,7 +8,7 @@
 ?>
 
 <div class="row">
-    <form action="/compte/update">
+    <form action="/compte/updateCompte/<?= urlencode('$' . $this->compte->getId()); ?>">
         <div class="form-group">
             <label for="type">Nom du compte :
                 <input type="text" name="name" placeholder="Nom du compte" value="<?= $this->compte->getNom(); ?>" class="form-control">
@@ -23,13 +23,16 @@
 
         <button type="submit" class="btn btn-primary">Valider</button>
     </form>
-    <a href="/compte/delete/<?= urlencode('$' . $this->compte->getId()); ?>" class="btn btn-danger" onClick="ConfirmMessage()">
+    <a href="/compte/delete/<?= urlencode('$' . $this->compte->getId()); ?>" class="btn btn-danger" onClick="return ConfirmMessage();">
         Supprmier le compte
     </a>
 </div>
 
 <script type="text/javascript">
+    /**
+     * @return {boolean}
+     */
     function ConfirmMessage() {
-        confirm("Etes-vous sur de vouloir supprimer ce compte ? Toutes les informations liés au compte seront perdus.");
+        return !!confirm("Etes-vous sur de vouloir supprimer ce compte ? Toutes les informations liés au compte seront perdus.");
     }
 </script>
