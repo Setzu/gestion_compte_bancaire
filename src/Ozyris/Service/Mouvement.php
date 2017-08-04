@@ -35,6 +35,15 @@ class Mouvement extends AbstractService
     }
 
     /**
+     * @param array $aModif
+     * @return bool
+     */
+    public function updateMouvementById(array $aModif)
+    {
+        return $this->updateProperties($this, $aModif);
+    }
+
+    /**
      * @return mixed
      */
     public function getId()
@@ -129,5 +138,4 @@ class Mouvement extends AbstractService
     {
         $this->ordre = $ordre;
     }
-
 }

@@ -9,9 +9,11 @@
 namespace Ozyris\Controller;
 
 
+use Form;
 use Ozyris\Model\CompteModel;
 use Ozyris\Model\MouvementModel;
 use Ozyris\Service\Compte;
+use Ozyris\Service\Mouvement;
 
 class CompteController extends AbstractController
 {
@@ -19,6 +21,8 @@ class CompteController extends AbstractController
     public function indexAction()
     {
         if (!empty($_POST)) {
+//            $oForm = new Form();
+//            $aInfosCompte = $oForm->getFormValues();
             $aInfosCompte = [];
             $aInfosCompte['nom'] = (string) htmlspecialchars(trim($_POST['nom']));
             $aInfosCompte['numero'] = (int) htmlspecialchars(trim($_POST['numero']));
@@ -55,6 +59,8 @@ class CompteController extends AbstractController
             $aModif = array_diff($aUpdateCompte, $aInfosCompte);
             $oCompte->updateCompteById($aModif);
             $oCompteModel->updateCompteById($aInfosCompte['id'], $aModif);
+
+            $this->setFlashMessage('Le mouvement a bien été modifié.', false);
         } else {
             $this->setVariables(['compte' => $oCompte]);
 
@@ -106,23 +112,33 @@ class CompteController extends AbstractController
 
     public function updateMouvementAction()
     {
-        if (!empty($_POST)) {
-            // @TODO : TEST
-        } else {
-            $iId = str_replace('$', '', urldecode($_GET['param']));
+        $iId = str_replace('$', '', urldecode($_GET['param']));
 
-            if (empty($iId)) {
-                return $this->redirect();
-            }
-
-            $oMouvementModel = new MouvementModel();
-            $aMouvement = $oMouvementModel->selectMouvementById($iId);
-            $this->setVariables(['mouvement' => $aMouvement]);
-
-            return $this->render('compte', 'updateMouvement');
+        if (empty($iId)) {
+            return $this->redirect();
         }
 
-        return $this->redirect();
+        $oMouvementModel = new MouvementModel();
+        $aMouvement = $oMouvementModel->selectMouvementById($iId);
+
+        if (!empty($_POST)) {
+            $aUpdateMouvement = [];
+            $aUpdateMouvement['type'] = (string) htmlspecialchars(trim($_POST['type']));
+            $aUpdateMouvement['montant'] = (int) htmlspecialchars(trim($_POST['montant']));
+            $aUpdateMouvement['ordre'] = (int) htmlspecialchars(trim($_POST['ordre']));
+
+            $aModif = array_diff($aUpdateMouvement, $aMouvement);
+            $oMouvement = new Mouvement();
+            $oMouvement->updateMouvementById($aModif);
+            $oMouvementModel->updateMouvementById($aMouvement['id'], $aModif);
+            $this->setFlashMessage('Le mouvement a bien été modifié.', false);
+
+            return $this->redirect();
+        }
+
+        $this->setVariables(['mouvement' => $aMouvement]);
+
+        return $this->render('compte', 'updateMouvement');
     }
 
     public function deleteAction()

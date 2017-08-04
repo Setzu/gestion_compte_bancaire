@@ -31,4 +31,30 @@ class AbstractService
             $oClasse->$method($value);
         }
     }
+
+    /**
+     * @param $object
+     * @param array $datas
+     * @return bool
+     * @throws \Exception
+     */
+    public function updateProperties($object, array $datas)
+    {
+        if (!is_array($datas) || count($datas) == 0 || !is_object($object)) {
+            return false;
+        }
+
+        foreach ($datas as $k => $v) {
+            $method = 'set' . ucfirst($k);
+
+            if (!method_exists($object, $method)) {
+                throw new \Exception('La méthode ' . $method . ' de la classe ' .
+                    get_class($object) . ' n\'existe pas.');
+            }
+
+            $object->$method($v);
+        }
+
+        return true;
+    }
 }

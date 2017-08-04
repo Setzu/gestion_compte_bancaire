@@ -41,13 +41,11 @@ class Compte extends AbstractService
 
     /**
      * @param array $infos
+     * @return bool
      */
-    public function updateCompteById($infos)
+    public function updateCompteById(array $infos)
     {
-        foreach ($infos as $k => $v) {
-            $method = 'set' . $k;
-            $this->$method($v);
-        }
+        return $this->updateProperties($this, $infos);
     }
 
     /**

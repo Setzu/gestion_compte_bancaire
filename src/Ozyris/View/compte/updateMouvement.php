@@ -23,8 +23,8 @@
                     </label>
                 </div>
                 <div class="form-group">
-                    <label for="number">Montant :
-                        <input type="number" name="number" placeholder="0" value="<?= $this->mouvement['montant'];?>" class="form-control">
+                    <label for="montant">Montant :
+                        <input type="number" name="montant" placeholder="0" value="<?= $this->mouvement['montant'];?>" class="form-control">
                     </label>
                     <label for="ordre">Ordre :
                         <input type="text" name="ordre" placeholder="0" value="<?= $this->mouvement['ordre'];?>" class="form-control">

@@ -284,13 +284,20 @@ class CompteModel extends AbstractModel
     /**
      * @param int $id
      * @param array $infos
+     * @return bool
      */
     public function updateCompteById($id, $infos)
     {
+        if (!is_array($infos)) {
+            return false;
+        }
+
         foreach ($infos as $k => $v) {
             $update = 'updateCompte' . ucfirst($k);
             $this->$update((int) $id, $v);
         }
+
+        return true;
     }
 
     /**
