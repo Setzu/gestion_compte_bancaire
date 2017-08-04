@@ -40,6 +40,17 @@ class Compte extends AbstractService
     }
 
     /**
+     * @param array $infos
+     */
+    public function updateCompteById($infos)
+    {
+        foreach ($infos as $k => $v) {
+            $method = 'set' . $k;
+            $this->$method($v);
+        }
+    }
+
+    /**
      * @param string $type
      * @param int $montant
      * @param string $ordre

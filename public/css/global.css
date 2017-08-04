@@ -10,3 +10,6 @@ tr.depot > td {
 tr.retrait > td {
     background-color: #fcf8e3;
 }
+.pointer {
+    cursor: pointer;
+}

@@ -12,7 +12,7 @@
         <a href="/index" class="btn btn-default">Retour</a>
     </div>
     <div class="col-md-10">
-        <form action="/compte/updateMouvement/<?= $this->mouvement['id']; ?>">
+        <form action="/compte/updateMouvement/<?= $this->mouvement['id']; ?>" method="post" role="form">
             <div class="form-group">
                 <div class="form-group">
                     <label for="type">Type du mouvement :

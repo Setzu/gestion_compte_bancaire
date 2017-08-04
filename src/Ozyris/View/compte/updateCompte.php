@@ -8,13 +8,13 @@
 ?>
 
 <div class="row">
-    <form action="/compte/updateCompte/<?= urlencode('$' . $this->compte->getId()); ?>">
+    <form action="/compte/updateCompte/<?= urlencode('$' . $this->compte->getId()); ?>" method="post" role="form">
         <div class="form-group">
-            <label for="type">Nom du compte :
-                <input type="text" name="name" placeholder="Nom du compte" value="<?= $this->compte->getNom(); ?>" class="form-control">
+            <label for="nom">Nom du compte :
+                <input type="text" name="nom" placeholder="Nom du compte" value="<?= $this->compte->getNom(); ?>" class="form-control">
             </label>
-            <label for="number">Numéro de compte :
-                <input type="number" name="number" placeholder="0" value="<?= $this->compte->getNumero();?>" class="form-control">
+            <label for="numero">Numéro de compte :
+                <input type="number" name="numero" placeholder="0" value="<?= $this->compte->getNumero();?>" class="form-control">
             </label>
             <label for="solde">Solde (€) :
                 <input type="number" name="solde" required="required" placeholder="0" value="<?= $this->compte->getSolde();?>" class="form-control">

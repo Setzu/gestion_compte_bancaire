@@ -37,12 +37,11 @@ if (count($this->aListeComptes) == 0) {
             <tbody>
             <?php
             $compte = $this->aListeComptes;
-
             /** @var \Ozyris\Service\Compte $oCompte */
             foreach($this->aListeComptes as $oCompte) { ?>
-                <tr>
+                <tr class="pointer">
                     <td>
-                        <a href="compte/updateCompte/<?= urlencode('$' . $oCompte->getId()); ?>">
+                        <a href="compte/updateCompte/<?php echo urlencode('$' . $oCompte->getId()); ?>">
                             <span  class="glyphicon glyphicon-pencil"></span>
                         </a>
                     </td>

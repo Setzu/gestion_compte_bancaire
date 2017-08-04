@@ -18,10 +18,10 @@ class CompteController extends AbstractController
 
     public function indexAction()
     {
-        if (isset($_POST)) {
+        if (!empty($_POST)) {
             $aInfosCompte = [];
-            $aInfosCompte['nom'] = (string) htmlspecialchars(trim($_POST['name']));
-            $aInfosCompte['number'] = (int) htmlspecialchars(trim($_POST['number']));
+            $aInfosCompte['nom'] = (string) htmlspecialchars(trim($_POST['nom']));
+            $aInfosCompte['numero'] = (int) htmlspecialchars(trim($_POST['numero']));
             $aInfosCompte['solde'] = (int) htmlspecialchars(trim($_POST['solde']));
 
             $oCompteModel = new CompteModel();
@@ -37,7 +37,7 @@ class CompteController extends AbstractController
     {
         $iId = str_replace('$', '', urldecode($_GET['param']));
 
-        if ($iId === '') {
+        if (empty($iId)) {
             return $this->redirect();
         }
 
@@ -48,16 +48,17 @@ class CompteController extends AbstractController
 
         if (!empty($_POST)) {
             $aUpdateCompte = [];
-            $aUpdateCompte['nom'] = (string) htmlspecialchars(trim($_POST['name']));
-            $aUpdateCompte['number'] = (int) htmlspecialchars(trim($_POST['number']));
+            $aUpdateCompte['nom'] = (string) htmlspecialchars(trim($_POST['nom']));
+            $aUpdateCompte['numero'] = (int) htmlspecialchars(trim($_POST['numero']));
             $aUpdateCompte['solde'] = (int) htmlspecialchars(trim($_POST['solde']));
 
-            $aModif = array_diff($aInfosCompte, $aUpdateCompte);
-            echo'<pre>';var_dump($aModif);die;
+            $aModif = array_diff($aUpdateCompte, $aInfosCompte);
+            $oCompte->updateCompteById($aModif);
+            $oCompteModel->updateCompteById($aInfosCompte['id'], $aModif);
         } else {
             $this->setVariables(['compte' => $oCompte]);
 
-            return $this->render('compte', 'update');
+            return $this->render('compte', 'updateCompte');
         }
 
         return $this->redirect();
@@ -67,24 +68,11 @@ class CompteController extends AbstractController
     {
         $iId = str_replace('$', '', urldecode($_GET['param']));
 
-        if ($iId === "") {
+        if (empty($iId)) {
             return $this->redirect();
-        } else {
-            $this->setVariables(['id' => $iId]);
-
-            return $this->render('compte', 'mouvement');
         }
-    }
 
-    public function valideMouvementAction()
-    {
-        if ($_POST) {
-            $iId = str_replace('$', '', urldecode($_GET['param']));
-
-            if ($iId === "") {
-                return $this->redirect();
-            }
-
+        if (!empty($_POST)) {
             $oCompteModel = new CompteModel();
             $aInfosCompte = $oCompteModel->selectCompteById($iId);
 
@@ -107,6 +95,31 @@ class CompteController extends AbstractController
             $oCompteModel->updateSoldeByCompte($oCompte);
 
             $this->setFlashMessage('Le mouvement a bien été renseigné.', false);
+
+            return $this->redirect();
+        }
+
+        $this->setVariables(['id' => $iId]);
+
+        return $this->render('compte', 'mouvement');
+    }
+
+    public function updateMouvementAction()
+    {
+        if (!empty($_POST)) {
+            // @TODO : TEST
+        } else {
+            $iId = str_replace('$', '', urldecode($_GET['param']));
+
+            if (empty($iId)) {
+                return $this->redirect();
+            }
+
+            $oMouvementModel = new MouvementModel();
+            $aMouvement = $oMouvementModel->selectMouvementById($iId);
+            $this->setVariables(['mouvement' => $aMouvement]);
+
+            return $this->render('compte', 'updateMouvement');
         }
 
         return $this->redirect();
@@ -122,28 +135,6 @@ class CompteController extends AbstractController
         $oMouvementModel->deleteAllMouvementsByCompteId($iId);
 
         $this->setFlashMessage('Le compte a bien été supprimé.', false);
-
-        return $this->redirect();
-    }
-
-    public function updateMouvementAction()
-    {
-        if (isset($_POST)) {
-            exit('test');
-            // @TODO : TEST
-        } else {
-            $iId = str_replace('$', '', urldecode($_GET['param']));
-
-            if ($iId === '') {
-                return $this->redirect();
-            }
-
-            $oMouvementModel = new MouvementModel();
-            $aMouvement = $oMouvementModel->selectMouvementById($iId);
-            $this->setVariables(['mouvement' => $aMouvement]);
-
-            return $this->render('compte', 'updateMouvement');
-        }
 
         return $this->redirect();
     }

@@ -31,7 +31,7 @@ $(document).ready(function() {
         ],
         "sDom": 'lrtip',
         "bLengthChange": false,
-        "iDisplayLength": 25,
+        "iDisplayLength": 10,
         "language": {
             "paginate": {
                 "previous": 'Précédent',

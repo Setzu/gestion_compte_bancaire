@@ -9,7 +9,7 @@
 
 <div class="row">
     <h3>Ajouter un mouvement :</h3>
-    <form action="/compte/valideMouvement/<?= urlencode(isset($this->id) ? '$' . $this->id : null); ?>" method="post" role="form">
+    <form action="/compte/mouvement/<?= urlencode(isset($this->id) ? '$' . $this->id : null); ?>" method="post" role="form">
         <div class="form-group">
             <label for="type">Type du mouvement :
                 <select name="type" class="form-control">
