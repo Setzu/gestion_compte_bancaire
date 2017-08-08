@@ -18,6 +18,7 @@ class Compte extends AbstractService
     protected $nom;
     protected $numero;
     protected $solde;
+    protected $dateCreation;
     protected $lastModification;
     private $oMouvement;
 
@@ -142,6 +143,23 @@ class Compte extends AbstractService
     public function setMouvement($oMouvement)
     {
         $this->oMouvement = $oMouvement;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getDateCreation()
+    {
+        return $this->dateCreation;
+    }
+
+    /**
+     * @param mixed $dateCreation
+     */
+    public function setDateCreation($dateCreation)
+    {
+        $this->dateCreation = $dateCreation;
     }
 
     /**

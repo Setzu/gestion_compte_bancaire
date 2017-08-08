@@ -8,4 +8,7 @@ Fonctionnalités principales :
 - Datatable pour l'affichage des comptes avec détail sur chaques comptes 
 contenant la liste des mouvements.
 
-A venir : l'ajout des prélèvements automatique
+A venir : 
+- Ajout des prélèvements automatique
+- Système d'authentification
+- Modification du solde lors de la modification / suppression de mouvement

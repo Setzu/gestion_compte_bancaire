@@ -10,7 +10,7 @@ namespace Ozyris\Controller;
 
 use Ozyris\Service\AssetManager;
 use Ozyris\Service\SessionManager;
-use Ozyris\Stdlib\ControllerInterface;
+use Ozyris\Interfaces\ControllerInterface;
 
 abstract class AbstractController extends SessionManager implements ControllerInterface
 {
@@ -37,7 +37,7 @@ abstract class AbstractController extends SessionManager implements ControllerIn
             if (!is_string($sName)) {
                 throw new \Exception('La clé doit être une chaîne de caractères.');
             }
-            // Création dynamique de la priopriété
+
             $this->{$sName} = $mValue;
         }
 

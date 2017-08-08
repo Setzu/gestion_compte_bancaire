@@ -9,7 +9,7 @@
 namespace Ozyris\Controller;
 
 
-use Form;
+use Ozyris\Form\Form;
 use Ozyris\Model\CompteModel;
 use Ozyris\Model\MouvementModel;
 use Ozyris\Service\Compte;
@@ -21,12 +21,7 @@ class CompteController extends AbstractController
     public function indexAction()
     {
         if (!empty($_POST)) {
-//            $oForm = new Form();
-//            $aInfosCompte = $oForm->getFormValues();
-            $aInfosCompte = [];
-            $aInfosCompte['nom'] = (string) htmlspecialchars(trim($_POST['nom']));
-            $aInfosCompte['numero'] = (int) htmlspecialchars(trim($_POST['numero']));
-            $aInfosCompte['solde'] = (int) htmlspecialchars(trim($_POST['solde']));
+            $aInfosCompte = Form::getFormValues();
 
             $oCompteModel = new CompteModel();
             $oCompteModel->createCompteWithInfos($aInfosCompte);
@@ -51,10 +46,7 @@ class CompteController extends AbstractController
         $oCompte->createCompte($aInfosCompte);
 
         if (!empty($_POST)) {
-            $aUpdateCompte = [];
-            $aUpdateCompte['nom'] = (string) htmlspecialchars(trim($_POST['nom']));
-            $aUpdateCompte['numero'] = (int) htmlspecialchars(trim($_POST['numero']));
-            $aUpdateCompte['solde'] = (int) htmlspecialchars(trim($_POST['solde']));
+            $aUpdateCompte = Form::getFormValues();
 
             $aModif = array_diff($aUpdateCompte, $aInfosCompte);
             $oCompte->updateCompteById($aModif);
@@ -88,13 +80,11 @@ class CompteController extends AbstractController
                 return $this->redirect();
             }
 
-            $sType = (string) htmlspecialchars(trim($_POST['type']));
-            $iMontant = (int) htmlspecialchars(trim($_POST['montant']));
-            $sOrdre = (string) htmlspecialchars(trim($_POST['ordre']));
+            $aMouvement = Form::getFormValues();
 
             $oCompte = new Compte();
             $oCompte->createCompte($aInfosCompte);
-            $oCompte->addMouvement($sType, $iMontant, $sOrdre);
+            $oCompte->addMouvement($aMouvement['type'], $aMouvement['montant'], $aMouvement['ordre']);
 
             $oMouvementModel = new MouvementModel();
             $oMouvementModel->insertMouvement($oCompte->getMouvement());
@@ -122,10 +112,7 @@ class CompteController extends AbstractController
         $aMouvement = $oMouvementModel->selectMouvementById($iId);
 
         if (!empty($_POST)) {
-            $aUpdateMouvement = [];
-            $aUpdateMouvement['type'] = (string) htmlspecialchars(trim($_POST['type']));
-            $aUpdateMouvement['montant'] = (int) htmlspecialchars(trim($_POST['montant']));
-            $aUpdateMouvement['ordre'] = (int) htmlspecialchars(trim($_POST['ordre']));
+            $aUpdateMouvement = Form::getFormValues();
 
             $aModif = array_diff($aUpdateMouvement, $aMouvement);
             $oMouvement = new Mouvement();
