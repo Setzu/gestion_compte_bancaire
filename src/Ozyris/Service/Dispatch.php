@@ -19,6 +19,7 @@ abstract class Dispatch
      * Détermine le controller et l'action à appeler en fonction des paramètres passés dans l'url
      *
      * @return mixed
+     * @throws \Exception
      */
     public static function dispatch()
     {

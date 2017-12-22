@@ -37,10 +37,15 @@ class Mouvement extends AbstractService
     /**
      * @param array $aModif
      * @return bool
+     * @throws \Exception
      */
-    public function updateMouvementById(array $aModif)
+    public function updateMouvement(array $aModif)
     {
         return $this->updateProperties($this, $aModif);
+    }
+
+    public function removeMouvementById($iId) {
+
     }
 
     /**

@@ -25,16 +25,14 @@ $oIndexController = new IndexController();
 
 <header>
     <div class="container">
-        <?php include_once (__DIR__ . '/header.php'); ?>
+        <?php include_once(__DIR__ . '/header.php'); ?>
     </div>
 </header>
 
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <?php
-                $oIndexController->flashMessages();
-            ?>
+            <?php $oIndexController->flashMessages(); ?>
         </div>
     </div>
     <div class="row">

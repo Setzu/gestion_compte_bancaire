@@ -9,6 +9,7 @@
 namespace Ozyris\Controller;
 
 use Ozyris\Service\AssetManager;
+use Ozyris\Service\Dispatch;
 use Ozyris\Service\SessionManager;
 use Ozyris\Interfaces\ControllerInterface;
 
@@ -96,6 +97,7 @@ abstract class AbstractController extends SessionManager implements ControllerIn
      *
      * @param string $controller
      * @param string $action
+     * @throws \Exception
      */
     protected function redirect($controller = '', $action = '')
     {

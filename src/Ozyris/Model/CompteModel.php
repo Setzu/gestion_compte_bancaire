@@ -202,7 +202,7 @@ class CompteModel extends AbstractModel
      * @param string $name
      * @return bool
      */
-    public function updateCompteNom($id, $name)
+    public function updateNomCompte($id, $name)
     {
         $sql = "UPDATE compte SET nom = :nom WHERE id = :id";
         $stmt = $this->bdd->prepare($sql);

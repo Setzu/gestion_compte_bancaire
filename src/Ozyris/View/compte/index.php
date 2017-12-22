@@ -8,18 +8,17 @@
 ?>
 
 <h2>Ajouter un compte : </h2>
-<form action="/compte" method="post" role="form">
-    <div class="form-group">
-        <label for="nom">Nom du compte :
+<div class="col-md-4">
+    <form action="/compte" method="post" role="form" class="form-horizontal">
+        <div class="form-group">
+            <label for="nom">Nom du compte :</label>
             <input type="text" name="nom" required="required" placeholder="Nom du compte" class="form-control">
-        </label>
-        <label for="numero">Numéro de compte :
+            <label for="numero">Numéro de compte :</label>
             <input type="number" name="numero" required="required" placeholder="0" class="form-control">
-        </label>
-        <label for="solde">Solde (€) :
+            <label for="solde">Solde (€) :</label>
             <input type="number" name="solde" required="required" placeholder="0" value="0" class="form-control">
-        </label>
-    </div>
+        </div>
 
-    <button type="submit" class="btn btn-primary">Ajouter</button>
-</form>
+        <button type="submit" class="btn btn-primary">Ajouter</button>
+    </form>
+</div>

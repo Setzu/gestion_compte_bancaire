@@ -116,7 +116,7 @@ class CompteController extends AbstractController
 
             $aModif = array_diff($aUpdateMouvement, $aMouvement);
             $oMouvement = new Mouvement();
-            $oMouvement->updateMouvementById($aModif);
+            $oMouvement->updateMouvement($aModif);
             $oMouvementModel->updateMouvementById($aMouvement['id'], $aModif);
             $this->setFlashMessage('Le mouvement a bien été modifié.', false);
 
@@ -147,7 +147,27 @@ class CompteController extends AbstractController
         $iId = str_replace('$', '', urldecode($_GET['param']));
 
         $oMouvementModel = new MouvementModel();
+        $oCompte = new CompteModel();
+        $aInfosMouvement = $oMouvementModel->selectMouvementById($iId);
+
+        if (!is_array($aInfosMouvement) && !array_key_exists('id_compte', $aInfosMouvement) || !array_key_exists('type_mouvement', $aInfosMouvement)) {
+            $this->setFlashMessage('La suppression du mouvement n\'a pas abouti, veuillez réessayer ultérieurement. Si le problème persiste, merci de contacter l\'administrateur du site.');
+
+            return $this->redirect();
+        }
+
+        $aInfosCompte = $oCompte->selectCompteById($aInfosMouvement['id_compte']);
+
+        if (!is_array($aInfosCompte) && !array_key_exists('solde', $aInfosCompte)) {
+            $this->setFlashMessage('La suppression du mouvement n\'a pas abouti, veuillez réessayer ultérieurement. Si le problème persiste, merci de contacter l\'administrateur du site.');
+
+            return $this->redirect();
+        }
+
         $oMouvementModel->deleteMouvementById($iId);
+        $iMontantMouvement = ($aInfosMouvement['type_mouvement'] == 'depot') ? - $aInfosMouvement['montant'] : + $aInfosMouvement['montant'];
+        $iNewSolde = $aInfosCompte['solde'] + $iMontantMouvement;
+        $oCompte->updateCompteSolde($aInfosMouvement['id_compte'], $iNewSolde);
 
         $this->setFlashMessage('Le mouvement a bien été supprimé.', false);
 
