@@ -2,28 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8afaeca7-9d66-46e5-baaa-aa49a0fbb5cb" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/config/bdd.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/config/cron.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/config/cron_mouvements.php" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/data/sql/auto_mouvement.sql" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/Ozyris/Service/Logs.php" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/config/mouvements.php" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/data/logs/cron_logs.txt" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/data/sql/compte.sql" afterPath="$PROJECT_DIR$/data/sql/compte.sql" />
-      <change beforePath="$PROJECT_DIR$/data/sql/mouvement.sql" afterPath="$PROJECT_DIR$/data/sql/mouvement.sql" />
-      <change beforePath="$PROJECT_DIR$/src/Ozyris/Controller/CompteController.php" afterPath="$PROJECT_DIR$/src/Ozyris/Controller/CompteController.php" />
-      <change beforePath="$PROJECT_DIR$/src/Ozyris/Controller/IndexController.php" afterPath="$PROJECT_DIR$/src/Ozyris/Controller/IndexController.php" />
-      <change beforePath="$PROJECT_DIR$/src/Ozyris/Model/CompteModel.php" afterPath="$PROJECT_DIR$/src/Ozyris/Model/CompteModel.php" />
-      <change beforePath="$PROJECT_DIR$/src/Ozyris/Model/MouvementModel.php" afterPath="$PROJECT_DIR$/src/Ozyris/Model/MouvementModel.php" />
-      <change beforePath="$PROJECT_DIR$/src/Ozyris/Service/Compte.php" afterPath="$PROJECT_DIR$/src/Ozyris/Service/Compte.php" />
-      <change beforePath="$PROJECT_DIR$/src/Ozyris/Service/Cron.php" afterPath="$PROJECT_DIR$/src/Ozyris/Service/Cron.php" />
-      <change beforePath="$PROJECT_DIR$/src/Ozyris/Service/Mouvement.php" afterPath="$PROJECT_DIR$/src/Ozyris/Service/Mouvement.php" />
-      <change beforePath="$PROJECT_DIR$/src/Ozyris/View/compte/index.php" afterPath="$PROJECT_DIR$/src/Ozyris/View/compte/index.php" />
-      <change beforePath="$PROJECT_DIR$/src/Ozyris/View/compte/mouvement.php" afterPath="$PROJECT_DIR$/src/Ozyris/View/compte/mouvement.php" />
-      <change beforePath="$PROJECT_DIR$/src/Ozyris/View/index/index.php" afterPath="$PROJECT_DIR$/src/Ozyris/View/index/index.php" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -34,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cron.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cron.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/cron.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1410">
-              <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+            <state relative-caret-position="225">
+              <caret line="20" column="3" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
               <folding>
                 <marker date="1517469663557" expanded="true" signature="401:429" ph="SELECT * FRO... mouvement" />
                 <marker date="1517469663557" expanded="true" signature="758:897" ph="INSERT INTO mouvement... " />
@@ -46,6 +25,19 @@
                 <marker date="1517469663557" expanded="true" signature="2620:2700" ph="UPDATE compte... " />
                 <marker date="1517469663557" expanded="true" signature="3489:3544" ph="UPDATE auto_mouvement... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="195">
+                <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -99,6 +91,7 @@
         <option value="$PROJECT_DIR$/data/sql/auto_mouvement.sql" />
         <option value="$PROJECT_DIR$/data/logs/cron_logs.txt" />
         <option value="$PROJECT_DIR$/config/cron.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -262,12 +255,12 @@
       <workItem from="1513952741012" duration="3455000" />
       <workItem from="1517297275550" duration="19603000" />
       <workItem from="1517382997866" duration="21638000" />
-      <workItem from="1517469283674" duration="669000" />
+      <workItem from="1517469283674" duration="851000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67035000" />
+    <option name="totallyTimeSpent" value="67217000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="-4" width="1922" height="958" extended-state="6" />
@@ -306,13 +299,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/layout/layout.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -637,8 +623,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/config/cron.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1410">
-          <caret line="99" column="0" lean-forward="true" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
+        <state relative-caret-position="225">
+          <caret line="20" column="3" lean-forward="true" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="3" />
           <folding>
             <marker date="1517469663557" expanded="true" signature="401:429" ph="SELECT * FRO... mouvement" />
             <marker date="1517469663557" expanded="true" signature="758:897" ph="INSERT INTO mouvement... " />
@@ -646,6 +632,17 @@
             <marker date="1517469663557" expanded="true" signature="2620:2700" ph="UPDATE compte... " />
             <marker date="1517469663557" expanded="true" signature="3489:3544" ph="UPDATE auto_mouvement... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="195">
+            <caret line="13" column="39" lean-forward="true" selection-start-line="13" selection-start-column="39" selection-end-line="13" selection-end-column="39" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
