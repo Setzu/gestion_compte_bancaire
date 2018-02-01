@@ -20,19 +20,45 @@ class MouvementModel extends AbstractModel
      */
     public function insertMouvement(Mouvement $oMouvement)
     {
-        $sql = "INSERT INTO mouvement (id_compte, type_mouvement, montant, ordre) VALUES (:id_compte, :type_mouvement, :montant, :ordre)";
+        $sql = "INSERT INTO mouvement (id_compte, type_mouvement, montant, libelle) VALUES (:id_compte, :type_mouvement, :montant, :libelle)";
         $stmt = $this->bdd->prepare($sql);
 
         $iIdCompte = $oMouvement->getIdCompte();
         $sTypeMouvement = $oMouvement->getType();
         $iMontant = $oMouvement->getMontant();
-        $sOrdre = $oMouvement->getOrdre();
+        $sLibelle = $oMouvement->getLibelle();
 
         try {
             $stmt->bindParam(':id_compte', $iIdCompte);
             $stmt->bindParam(':type_mouvement', $sTypeMouvement);
             $stmt->bindParam(':montant', $iMontant);
-            $stmt->bindParam(':ordre', $sOrdre);
+            $stmt->bindParam(':libelle', $sLibelle);
+
+            if (!$stmt->execute()) {
+//                $aSqlError = $stmt->errorInfo();
+                throw new \Exception(parent::SQL_ERROR);
+            }
+        } catch(\Exception $e) {
+            die($e->getMessage());
+        }
+
+        return $stmt->closeCursor();
+    }
+
+    /**
+     * @param array $aInfosMouvement
+     * @return bool
+     */
+    public function insertMouvementByInfosMouvement(array $aInfosMouvement)
+    {
+        $sql = "INSERT INTO mouvement (id_compte, type_mouvement, montant, libelle) VALUES (:id_compte, :type_mouvement, :montant, :libelle)";
+        $stmt = $this->bdd->prepare($sql);
+
+        try {
+            $stmt->bindParam(':id_compte', $aInfosMouvement['id_compte']);
+            $stmt->bindParam(':type_mouvement', $aInfosMouvement['type_mouvement']);
+            $stmt->bindParam(':montant', $aInfosMouvement['montant']);
+            $stmt->bindParam(':libelle', $aInfosMouvement['libelle']);
 
             if (!$stmt->execute()) {
 //                $aSqlError = $stmt->errorInfo();
@@ -98,14 +124,14 @@ class MouvementModel extends AbstractModel
      * @param string $value
      * @return array
      */
-    public function selectAllMouvementsByOrdre($value)
+    public function selectAllMouvementsByLibelle($value)
     {
-        $sql = "SELECT * FROM mouvement WHERE ordre = :ordre";
+        $sql = "SELECT * FROM mouvement WHERE libelle = :libelle";
         $stmt = $this->bdd->prepare($sql);
-        $sOrdre = (string) $value;
+        $sLibelle = (string) $value;
 
         try {
-            $stmt->bindParam(':ordre', $sOrdre);
+            $stmt->bindParam(':libelle', $sLibelle);
 
             if (!$stmt->execute()) {
 //                $aSqlErrors = $stmt->errorInfo();
@@ -202,19 +228,19 @@ class MouvementModel extends AbstractModel
 
     /**
      * @param int $id
-     * @param string $ordre
+     * @param string $libelle
      * @return bool
      */
-    public function updateMouvementOrdre($id, $ordre)
+    public function updateMouvementLibelle($id, $libelle)
     {
-        $sql = "UPDATE mouvement SET ordre = :ordre WHERE id = :id";
+        $sql = "UPDATE mouvement SET libelle = :libelle WHERE id = :id";
         $stmt = $this->bdd->prepare($sql);
         $iId = (int) $id;
-        $sOrdre = (string) $ordre;
+        $sLibelle = (string) $libelle;
 
         try {
             $stmt->bindParam(':id', $iId);
-            $stmt->bindParam(':ordre', $sOrdre);
+            $stmt->bindParam(':libelle', $sLibelle);
 
             if (!$stmt->execute()) {
 //                $aSqlErrors = $stmt->errorInfo();

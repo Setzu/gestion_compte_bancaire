@@ -16,10 +16,9 @@ class Compte extends AbstractService
 
     protected $id;
     protected $nom;
-    protected $numero;
     protected $solde;
     protected $dateCreation;
-    protected $lastModification;
+    protected $lastUpdate;
     private $oMouvement;
 
     /**
@@ -34,6 +33,7 @@ class Compte extends AbstractService
 
     /**
      * @param array $aInfos
+     * @throws \Exception
      */
     public function createCompte(array $aInfos)
     {
@@ -43,6 +43,7 @@ class Compte extends AbstractService
     /**
      * @param array $infos
      * @return bool
+     * @throws \Exception
      */
     public function updateCompteById(array $infos)
     {
@@ -100,22 +101,6 @@ class Compte extends AbstractService
     /**
      * @return mixed
      */
-    public function getNumero()
-    {
-        return $this->numero;
-    }
-
-    /**
-     * @param mixed $numero
-     */
-    public function setNumero($numero)
-    {
-        $this->numero = $numero;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getSolde()
     {
         return $this->solde;
@@ -165,17 +150,17 @@ class Compte extends AbstractService
     /**
      * @return mixed
      */
-    public function getLastModification()
+    public function getLastUpdate()
     {
-        return $this->lastModification;
+        return $this->lastUpdate;
     }
 
     /**
-     * @param mixed $lastModification
+     * @param mixed $lastUpdate
      */
-    public function setLastModification($lastModification)
+    public function setLastUpdate($lastUpdate)
     {
-        $this->lastModification = $lastModification;
+        $this->lastUpdate = $lastUpdate;
     }
 
 }

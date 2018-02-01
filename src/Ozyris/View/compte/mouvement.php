@@ -9,23 +9,20 @@
 
 <div class="row">
     <h3>Ajouter un mouvement :</h3>
-    <form action="/compte/mouvement/<?= urlencode(isset($this->id) ? '$' . $this->id : null); ?>" method="post" role="form">
-        <div class="form-group">
-            <label for="type">Type du mouvement :
+    <div class="col-md-2">
+        <form action="/compte/mouvement/<?= urlencode(isset($this->id) ? '$' . $this->id : null); ?>" method="post" role="form" class="form-horizontal">
+            <div class="form-group">
+                <label for="type">Type du mouvement :</label>
                 <select name="type" class="form-control">
                     <option value="retrait">Dépense / Retrait</option>
                     <option value="depot">Dépôt</option>
                 </select>
-            </label>
-        </div>
-        <div class="form-group">
-            <label for="montant">Montant (€) :
+                <label for="montant">Montant (€) :</label>
                 <input type="number" name="montant" required="required" placeholder="0" class="form-control">
-            </label>
-            <label for="ordre">Ordre (facultatif) :
+                <label for="ordre">Ordre (facultatif) :</label>
                 <input type="text" name="ordre" placeholder="Ordre" class="form-control">
-            </label>
-        </div>
-        <button type="submit" class="btn btn-primary">Valider</button>
-    </form>
+            </div>
+            <button type="submit" class="btn btn-primary">Valider</button>
+        </form>
+    </div>
 </div>

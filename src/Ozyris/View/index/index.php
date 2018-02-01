@@ -28,8 +28,8 @@ if (count($this->aListeComptes) == 0) {
             <tr>
                 <th style="max-width: 1%"></th>
                 <th style="width: 32%;">Nom du compte</th>
-                <th style="width: 32%;">N° de compte</th>
                 <th style="width: 32%;">Solde (€)</th>
+                <th style="width: 32%;">Dernières modifications</th>
                 <th style="max-width: 1%;"></th>
                 <th class="display-none"></th>
             </tr>
@@ -46,8 +46,8 @@ if (count($this->aListeComptes) == 0) {
                         </a>
                     </td>
                     <td class="detail" data-content="name"><?php echo $oCompte->getNom(); ?></td>
-                    <td class="detail"><?php echo $oCompte->getNumero(); ?></td>
                     <td class="detail"><?php echo $oCompte->getSolde(); ?></td>
+                    <td class="detail"><?php echo $oCompte->getLastUpdate(); ?></td>
                     <td>
                         <a href="compte/mouvement/<?= urlencode('$' . $oCompte->getId()); ?>">
                             <span class="glyphicon glyphicon-plus"></span>
@@ -69,7 +69,7 @@ if (count($this->aListeComptes) == 0) {
                                     <th></th>
                                     <th>Type du mouvement</th>
                                     <th>Montant</th>
-                                    <th>Ordre</th>
+                                    <th>Libellé</th>
                                     <th>Date</th>
                                     <th></th>
                                 </tr>
@@ -85,7 +85,7 @@ if (count($this->aListeComptes) == 0) {
                                         </td>
                                         <td><?= ucfirst(strtolower($mouvement['type_mouvement'])) ;?></td>
                                         <td><?= $mouvement['montant'] . '€' ;?></td>
-                                        <td><?= $mouvement['ordre'] ;?></td>
+                                        <td><?= $mouvement['libelle'] ;?></td>
                                         <td><?= $mouvement['date_mouvement'] ;?></td>
                                         <td>
                                             <a href="/compte/deleteMouvement/<?= urlencode('$' . $mouvement['id']); ?>"

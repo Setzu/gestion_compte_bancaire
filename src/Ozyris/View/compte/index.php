@@ -13,8 +13,6 @@
         <div class="form-group">
             <label for="nom">Nom du compte :</label>
             <input type="text" name="nom" required="required" placeholder="Nom du compte" class="form-control">
-            <label for="numero">Numéro de compte :</label>
-            <input type="number" name="numero" required="required" placeholder="0" class="form-control">
             <label for="solde">Solde (€) :</label>
             <input type="number" name="solde" required="required" placeholder="0" value="0" class="form-control">
         </div>

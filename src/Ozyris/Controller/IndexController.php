@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: david
+ * User: david b.
  * Date: 08/06/16
  * Time: 13:01
  */
@@ -15,6 +15,9 @@ use Ozyris\Service\Compte;
 class IndexController extends AuthentificationController
 {
 
+    /**
+     * @throws \Exception
+     */
     public function indexAction()
     {
         $aComptes = $aMouvements = [];

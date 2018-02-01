@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: david
+ * User: david b.
  * Date: 31/07/17
  * Time: 17:26
  */
@@ -18,6 +18,9 @@ use Ozyris\Service\Mouvement;
 class CompteController extends AbstractController
 {
 
+    /**
+     * @throws \Exception
+     */
     public function indexAction()
     {
         if (!empty($_POST)) {
@@ -32,6 +35,9 @@ class CompteController extends AbstractController
         return $this->render('compte');
     }
 
+    /**
+     * @throws \Exception
+     */
     public function updateCompteAction()
     {
         $iId = str_replace('$', '', urldecode($_GET['param']));
@@ -62,6 +68,9 @@ class CompteController extends AbstractController
         return $this->redirect();
     }
 
+    /**
+     * @throws \Exception
+     */
     public function mouvementAction()
     {
         $iId = str_replace('$', '', urldecode($_GET['param']));
@@ -100,6 +109,9 @@ class CompteController extends AbstractController
         return $this->render('compte', 'mouvement');
     }
 
+    /**
+     * @throws \Exception
+     */
     public function updateMouvementAction()
     {
         $iId = str_replace('$', '', urldecode($_GET['param']));
@@ -128,6 +140,9 @@ class CompteController extends AbstractController
         return $this->render('compte', 'updateMouvement');
     }
 
+    /**
+     * @throws \Exception
+     */
     public function deleteAction()
     {
         $iId = str_replace('$', '', urldecode($_GET['param']));
@@ -142,6 +157,9 @@ class CompteController extends AbstractController
         return $this->redirect();
     }
 
+    /**
+     * @throws \Exception
+     */
     public function deleteMouvementAction()
     {
         $iId = str_replace('$', '', urldecode($_GET['param']));
@@ -172,5 +190,13 @@ class CompteController extends AbstractController
         $this->setFlashMessage('Le mouvement a bien été supprimé.', false);
 
         return $this->redirect();
+    }
+
+    /**
+     *
+     */
+    public function addPrelevementAction()
+    {
+
     }
 }
