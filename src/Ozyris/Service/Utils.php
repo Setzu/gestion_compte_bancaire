@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: david
+ * User: david b.
  * Date: 01/06/16
  * Time: 14:36
  */
@@ -17,11 +17,14 @@ class Utils
      * @param mixed $value
      * @param bool $die
      */
-    public static function vdd($value, $die = true)
+    public static function debug($value, $die = true)
     {
-        echo '<pre>'; var_dump($value);
+        echo '<pre>'; var_dump($value, $_SESSION['test']);
+        echo '<br><br>';
+        debug_print_backtrace();
         if ($die) {
-            die('Fin du var_dump.');
+            echo '</pre>';
+            die;
         } else {
             echo '</pre>';
         }

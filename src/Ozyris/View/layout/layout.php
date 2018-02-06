@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: david
+ * User: david b.
  * Date: 26/05/16
  * Time: 13:54
  */
@@ -13,11 +13,11 @@ $oIndexController = new IndexController();
 <!DOCTYPE html>
 <title>Gestion de compte bancaire</title>
 <html>
-
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/global.css">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/form.css">
+    <link rel="stylesheet" type="text/css" href="/css/global.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 </head>
 
@@ -36,7 +36,11 @@ $oIndexController = new IndexController();
         </div>
     </div>
     <div class="row">
-        <?php \Ozyris\Service\Dispatch::dispatch(); ?>
+        <?php try {
+            \Ozyris\Service\Dispatch::dispatch();
+        } catch (\Exception $e) {
+            die($e->getMessage());
+        } ?>
     </div>
 </div>
 

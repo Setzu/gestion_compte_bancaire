@@ -1,13 +1,13 @@
 <?php
-
-namespace Ozyris\Form;
-
 /**
  * Created by PhpStorm.
- * User: david
+ * User: david b.
  * Date: 07/08/17
  * Time: 11:05
  */
+
+namespace Ozyris\Form;
+
 class AbstractForm
 {
     protected $form;
@@ -20,23 +20,21 @@ class AbstractForm
     ];
 
     /**
-     * @param array $form
+     * @param array $options
      */
-    protected function setForm($form)
+    protected function setForm($options)
     {
-        if (!array_key_exists('action', $form)) {
-            $form['action'] = '/';
+        if (!array_key_exists('action', $options)) {
+            $options['action'] = '/';
         }
 
         $class = '';
 
-        if (array_key_exists('class', $form) && is_string($form['class'])) {
-            $class = "class='" . $form['class'] . "' ";
+        if (array_key_exists('class', $options) && is_string($options['class'])) {
+            $class = "class='" . $options['class'] . "' ";
         }
 
-        $this->form = "<form action='" . $form['action'] . "' method='post' role='form' " . $class . ">";
-
-
+        $this->form = "<form action='" . $options['action'] . "' method='post' role='form' " . $class . ">";
 
         foreach ($this->input as $input) {
             $this->form .= $input;

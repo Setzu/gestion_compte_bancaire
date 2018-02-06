@@ -1,22 +1,31 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: david
+ * User: david b.
  * Date: 01/08/17
  * Time: 10:40
  */
 ?>
 
-<h2>Ajouter un compte : </h2>
-<div class="col-md-4">
+<div class="col-md-8 col-md-offset-2 cadre-form">
+    <h3 class="title-form">Ajouter un compte : </h3>
     <form action="/compte" method="post" role="form" class="form-horizontal">
         <div class="form-group">
-            <label for="nom">Nom du compte :</label>
-            <input type="text" name="nom" required="required" placeholder="Nom du compte" class="form-control">
-            <label for="solde">Solde (€) :</label>
-            <input type="number" name="solde" required="required" placeholder="0" value="0" class="form-control">
+            <label for="nom" class="col-sm-4 control-label">Nom du compte :</label>
+            <div class="col-sm-4">
+                <input type="text" name="nom" required="required" placeholder="Nom du compte" class="form-control">
+            </div>
         </div>
-
-        <button type="submit" class="btn btn-primary">Ajouter</button>
+        <div class="form-group">
+            <label for="solde" class="col-sm-4 control-label">Solde (€) :</label>
+            <div class="col-sm-4">
+                <input type="number" name="solde" required="required" placeholder="0" value="0" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-4">
+                <button type="submit" class="btn btn-primary">Valider</button>
+            </div>
+        </div>
     </form>
 </div>

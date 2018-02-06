@@ -14,6 +14,7 @@ use Ozyris\Model\CompteModel;
 use Ozyris\Model\MouvementModel;
 use Ozyris\Service\Compte;
 use Ozyris\Service\Mouvement;
+use Ozyris\Service\Utils;
 
 class CompteController extends AbstractController
 {
@@ -73,7 +74,7 @@ class CompteController extends AbstractController
      */
     public function mouvementAction()
     {
-        $iId = str_replace('$', '', urldecode($_GET['param']));
+        $iId = (int) str_replace('$', '', urldecode($_GET['param']));
 
         if (empty($iId)) {
             return $this->redirect();
@@ -91,14 +92,15 @@ class CompteController extends AbstractController
 
             $aMouvement = Form::getFormValues();
 
+            if (!isset($aMouvement['type']) || !isset($aMouvement['montant']) || !array_key_exists('libelle', $aMouvement)) {
+                return $this->redirect();
+            }
+
+            $iAutomatique = isset($aMouvement['mensuel']) ? 1 : 0;
             $oCompte = new Compte();
             $oCompte->createCompte($aInfosCompte);
-            $oCompte->addMouvement($aMouvement['type'], $aMouvement['montant'], $aMouvement['ordre']);
-
-            $oMouvementModel = new MouvementModel();
-            $oMouvementModel->insertMouvement($oCompte->getMouvement());
+            $oCompte->addMouvement($aMouvement['type'], $aMouvement['montant'], $aMouvement['libelle'], $iAutomatique);
             $oCompteModel->updateSoldeByCompte($oCompte);
-
             $this->setFlashMessage('Le mouvement a bien été renseigné.', false);
 
             return $this->redirect();

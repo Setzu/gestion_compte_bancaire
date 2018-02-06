@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: david
+ * User: david b.
  * Date: 31/07/17
  * Time: 17:38
  */
@@ -53,9 +53,10 @@ class Compte extends AbstractService
     /**
      * @param string $type
      * @param int $montant
-     * @param string $ordre
+     * @param string $libelle
+     * @param int $iAutomatique
      */
-    public function addMouvement($type, $montant, $ordre = '')
+    public function addMouvement($type, $montant, $libelle = '', $iAutomatique = 0)
     {
         if ($type == self::DEPOT) {
             $this->setSolde($this->getSolde() + $montant);
@@ -63,7 +64,9 @@ class Compte extends AbstractService
             $this->setSolde($this->getSolde() - $montant);
         }
 
-        $this->oMouvement->addMouvement($type, (int) $montant, $this->getId(), $ordre);
+        /** @var Mouvement $oMouvement */
+        $oMouvement = $this->oMouvement;
+        $oMouvement->addMouvement($type, (int) $montant, $this->getId(), $libelle, $iAutomatique);
     }
 
     /**

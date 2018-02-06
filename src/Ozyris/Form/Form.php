@@ -1,13 +1,13 @@
 <?php
-
-namespace Ozyris\Form;
-
 /**
  * Created by PhpStorm.
- * User: david
+ * User: david b.
  * Date: 04/08/17
  * Time: 15:51
  */
+
+namespace Ozyris\Form;
+
 class Form extends AbstractForm
 {
 
@@ -21,21 +21,21 @@ class Form extends AbstractForm
 
     /**
      * @example :
-     * $infos = [
+     * $options = [
      *   action = '/',
-     *   class = 'foo bar',
-     *   id = 'example'
+     *   class = 'foo',
+     *   id = 'bar'
      * ]
-     * @param array $infos
+     * @param array $options
      * @throws \Exception
      */
-    public function setForm($infos = [])
+    public function setForm($options = [])
     {
-        if (!is_array($infos)) {
-            throw new \Exception('Les paramètres doivent être dans un array.');
+        if (!is_array($options)) {
+            throw new \Exception('The options must be in an array.');
         }
 
-        parent::setForm($infos);
+        parent::setForm($options);
     }
 
     /**
@@ -47,6 +47,7 @@ class Form extends AbstractForm
      * @param string $placeholder
      * @param string $class
      * @param string $id
+     * @throws \Exception
      */
     public function setTextInput($type = 'text', $name, $required = false, $value = '', $label = '', $placeholder = '', $class = '', $id = '')
     {
@@ -59,12 +60,19 @@ class Form extends AbstractForm
      * @param array $optionValues
      * @param string $class
      * @param string $id
+     * @throws \Exception
      */
     public function setSelectInput($name, $required = false, $optionValues = [], $class = '', $id = '')
     {
         parent::setSelectInput($name, $required, $optionValues, $class, $id);
     }
 
+    /**
+     * @param string $value
+     * @param string $class
+     * @param string $id
+     * @throws \Exception
+     */
     public function setSubmitInput($value = '', $class = '', $id = '')
     {
         parent::setSubmitInput($value, $class, $id);

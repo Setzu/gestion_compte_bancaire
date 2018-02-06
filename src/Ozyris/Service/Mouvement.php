@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: david
+ * User: david b.
  * Date: 01/08/17
  * Time: 09:27
  */
@@ -34,15 +34,16 @@ class Mouvement extends AbstractService
      * @param int $montant
      * @param int $idCompte
      * @param string $libelle
+     * @param int $iAutomatique
      */
-    public function addMouvement($type, $montant, $idCompte, $libelle = '', $automatic = 0)
+    public function addMouvement($type, $montant, $idCompte, $libelle = '', $iAutomatique = 0)
     {
         $this->setIdCompte((int) $idCompte);
         $this->setType($type);
         $this->setMontant((int) $montant);
         $this->setDate(new \DateTime());
-        $this->setAutomatic($automatic);
         $this->setLibelle($libelle);
+        $this->setAutomatic($iAutomatique);
 
         /** @var MouvementModel $oMouvementModel */
         $oMouvementModel = $this->getMouvementModel();

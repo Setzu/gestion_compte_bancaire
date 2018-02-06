@@ -10,6 +10,7 @@ namespace Ozyris\Model;
 
 
 use Ozyris\Service\Mouvement;
+use Ozyris\Service\Utils;
 
 class MouvementModel extends AbstractModel
 {
@@ -20,19 +21,22 @@ class MouvementModel extends AbstractModel
      */
     public function insertMouvement(Mouvement $oMouvement)
     {
-        $sql = "INSERT INTO mouvement (id_compte, type_mouvement, montant, libelle) VALUES (:id_compte, :type_mouvement, :montant, :libelle)";
+        $_SESSION['test']++;
+        $sql = "INSERT INTO mouvement (id_compte, type_mouvement, montant, libelle, automatic) VALUES (:id_compte, :type_mouvement, :montant, :libelle, :automatic)";
         $stmt = $this->bdd->prepare($sql);
 
         $iIdCompte = $oMouvement->getIdCompte();
         $sTypeMouvement = $oMouvement->getType();
         $iMontant = $oMouvement->getMontant();
         $sLibelle = $oMouvement->getLibelle();
+        $iAutomatic = $oMouvement->getAutomatic();
 
         try {
             $stmt->bindParam(':id_compte', $iIdCompte);
             $stmt->bindParam(':type_mouvement', $sTypeMouvement);
             $stmt->bindParam(':montant', $iMontant);
             $stmt->bindParam(':libelle', $sLibelle);
+            $stmt->bindParam(':automatic', $iAutomatic);
 
             if (!$stmt->execute()) {
 //                $aSqlError = $stmt->errorInfo();
@@ -51,7 +55,7 @@ class MouvementModel extends AbstractModel
      */
     public function insertMouvementByInfosMouvement(array $aInfosMouvement)
     {
-        $sql = "INSERT INTO mouvement (id_compte, type_mouvement, montant, libelle) VALUES (:id_compte, :type_mouvement, :montant, :libelle)";
+        $sql = "INSERT INTO mouvement (id_compte, type_mouvement, montant, libelle, automatic) VALUES (:id_compte, :type_mouvement, :montant, :libelle, :automatic)";
         $stmt = $this->bdd->prepare($sql);
 
         try {
@@ -59,6 +63,7 @@ class MouvementModel extends AbstractModel
             $stmt->bindParam(':type_mouvement', $aInfosMouvement['type_mouvement']);
             $stmt->bindParam(':montant', $aInfosMouvement['montant']);
             $stmt->bindParam(':libelle', $aInfosMouvement['libelle']);
+            $stmt->bindParam(':automatic', $aInfosMouvement['automatic']);
 
             if (!$stmt->execute()) {
 //                $aSqlError = $stmt->errorInfo();
