@@ -35,6 +35,7 @@ class Mouvement extends AbstractService
      * @param int $idCompte
      * @param string $libelle
      * @param int $iAutomatique
+     * @return bool
      */
     public function addMouvement($type, $montant, $idCompte, $libelle = '', $iAutomatique = 0)
     {
@@ -47,7 +48,8 @@ class Mouvement extends AbstractService
 
         /** @var MouvementModel $oMouvementModel */
         $oMouvementModel = $this->getMouvementModel();
-        $oMouvementModel->insertMouvement($this);
+
+        return $oMouvementModel->insertMouvement($this);
     }
 
     /**
@@ -62,6 +64,19 @@ class Mouvement extends AbstractService
 
     public function removeMouvementById($iId) {
 
+    }
+
+    /**
+     * @param int $idCompte
+     * @param array $aInfosMouvement
+     * @return bool
+     */
+    public function addAutomaticMouvement($idCompte, array $aInfosMouvement)
+    {
+        /** @var MouvementModel $oMouvementModel */
+        $oMouvementModel = $this->getMouvementModel();
+
+        return $oMouvementModel->insertAutomaticMouvement($idCompte, $aInfosMouvement);
     }
 
     /**

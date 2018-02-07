@@ -10,6 +10,7 @@ use Ozyris\Controller\IndexController;
 
 $oIndexController = new IndexController();
 ?>
+
 <!DOCTYPE html>
 <title>Gestion de compte bancaire</title>
 <html>
@@ -19,6 +20,7 @@ $oIndexController = new IndexController();
     <link rel="stylesheet" type="text/css" href="/css/global.css">
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 
 <body>
@@ -36,11 +38,7 @@ $oIndexController = new IndexController();
         </div>
     </div>
     <div class="row">
-        <?php try {
-            \Ozyris\Service\Dispatch::dispatch();
-        } catch (\Exception $e) {
-            die($e->getMessage());
-        } ?>
+        <?php include_once ($this->content); ?>
     </div>
 </div>
 

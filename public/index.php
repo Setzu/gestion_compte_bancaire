@@ -14,7 +14,11 @@ error_reporting(E_ALL);
 $loader = require_once __DIR__ . '/../vendor/autoload.php';
 
 try {
-    include_once __DIR__ . '/../src/Ozyris/View/layout/layout.php';
+    try {
+        \Ozyris\core\Router::dispatch();
+    } catch (\Exception $e) {
+        die($e->getMessage());
+    }
 } catch(\Exception $e) { ?>
     <div class="container">
         <div class="row">
@@ -22,11 +26,15 @@ try {
                 <div class="page-not-found">
                     <h3 class="page-not-found">
                         <?php
+                        try {
                             if (\Ozyris\core\Module::getEnv() == 'development') {
                                 echo 'Exception : ' . $e->getMessage();
                             } else {
                                 echo 'Une erreur est survenue, veuillez réessayez ultérieurement.';
                             }
+                        } catch (\Ozyris\core\ModuleException $e) {
+                            echo 'Une erreur est survenue, veuillez réessayez ultérieurement.';
+                        }
                         ?>
                     </h3>
                 </div>

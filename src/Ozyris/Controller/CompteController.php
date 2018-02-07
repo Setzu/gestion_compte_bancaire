@@ -96,10 +96,19 @@ class CompteController extends AbstractController
                 return $this->redirect();
             }
 
-            $iAutomatique = isset($aMouvement['mensuel']) ? 1 : 0;
             $oCompte = new Compte();
             $oCompte->createCompte($aInfosCompte);
-            $oCompte->addMouvement($aMouvement['type'], $aMouvement['montant'], $aMouvement['libelle'], $iAutomatique);
+
+            if (isset($aMouvement['mensuel'])) {
+                if (!is_int($aMouvement['jour']) || $aMouvement['jour'] > 28) {
+                    $this->setFlashMessage('Le jour saisi est incorrect');
+                    return $this->redirect('compte', 'mouvement');
+                }
+
+                $oCompte->addAutomaticMouvement($aMouvement);
+            }
+
+            $oCompte->addMouvement($aMouvement['type'], $aMouvement['montant'], $aMouvement['libelle']);
             $oCompteModel->updateSoldeByCompte($oCompte);
             $this->setFlashMessage('Le mouvement a bien été renseigné.', false);
 
@@ -109,6 +118,11 @@ class CompteController extends AbstractController
         $this->setVariables(['id' => $iId]);
 
         return $this->render('compte', 'mouvement');
+    }
+
+    public function autoMouvementAction()
+    {
+
     }
 
     /**

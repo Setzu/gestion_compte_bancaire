@@ -7,7 +7,10 @@
  */
 ?>
 
-<div class="col-md-8 col-md-offset-2 cadre-form">
+<div class="col-md-1">
+    <a href="/index" class="btn btn-default">Retour</a>
+</div>
+<div class="col-md-6 col-md-offset-2 cadre-form">
     <h3 class="title-form">Modifier un compte</h3>
     <form action="/compte/updateCompte/<?= urlencode('$' . $this->compte->getId()); ?>" method="post" role="form" class="form-horizontal">
         <div class="form-group">
@@ -23,14 +26,10 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-offset-4 col-sm-4">
+            <div class="col-sm-offset-4 col-sm-8">
                 <button type="submit" class="btn btn-primary">Valider</button>
-            </div>
-        </div>
-        <div class="form-group">
-            <div class="col-sm-offset-9 col-sm-4">
-                <a href="/compte/delete/<?= urlencode('$' . $this->compte->getId()); ?>" class="btn btn-danger btn-xs" onClick="return ConfirmMessage();">
-                    Supprimer le compte
+                <a href="/compte/delete/<?= urlencode('$' . $this->compte->getId()); ?>" class="btn btn-danger glyphicon glyphicon-remove"
+                   onClick="return ConfirmMessage();" style="float: right;" data-toggle="tooltip" title="Supprimer le compte ?">
                 </a>
             </div>
         </div>

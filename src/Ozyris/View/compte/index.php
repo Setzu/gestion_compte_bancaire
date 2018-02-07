@@ -7,7 +7,10 @@
  */
 ?>
 
-<div class="col-md-8 col-md-offset-2 cadre-form">
+<div class="col-md-1">
+    <a href="/index" class="btn btn-default">Retour</a>
+</div>
+<div class="col-md-6 col-md-offset-2 cadre-form">
     <h3 class="title-form">Ajouter un compte : </h3>
     <form action="/compte" method="post" role="form" class="form-horizontal">
         <div class="form-group">

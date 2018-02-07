@@ -7,7 +7,10 @@
  */
 ?>
 
-<div class="col-md-8 col-md-offset-2 cadre-form">
+<div class="col-md-1">
+    <a href="/index" class="btn btn-default">Retour</a>
+</div>
+<div class="col-md-6 col-md-offset-2 cadre-form">
     <h3 class="title-form">Ajouter un mouvement</h3>
     <form action="/compte/mouvement/<?= urlencode(isset($this->id) ? '$' . $this->id : null); ?>" method="post" role="form" class="form-horizontal">
         <div class="form-group">
@@ -32,15 +35,30 @@
             </div>
         </div>
         <div class="form-group">
-            <div class="col-sm-offset-4 col-sm-4">
+            <div class="col-sm-offset-4 col-sm-5">
                 <div class="checkbox">
                     <label>
-                        <input type="checkbox" name="mensuel"> Mouvement mensuel
+                        <input type="checkbox" name="mensuel">Mouvement mensuel
                     </label>
-                    <span data-toggle="tooltip" title="Ce mouvement sera répété le premier jour de chaque mois">
+                    <span data-toggle="tooltip" title="Ce mouvement sera répété chaque mois">
                         <span class="glyphicon glyphicon-question-sign"></span>
                     </span>
                 </div>
+            </div>
+        </div>
+        <div class="form-group" style="display: none;" id="jour">
+            <label for="jour" class="col-sm-4 control-label">Jour
+                <span data-toggle="tooltip" title="Séléctionner le jour auquel sera effectué le mouvement mensuel">
+                    <span class="glyphicon glyphicon-question-sign"></span>
+                </span>
+            </label>
+            <div class="col-sm-4">
+                <select class="form-control" name="jour">
+                    <?php for ($i = 1; $i < 29; $i++) { ?>
+                        <?php $i = str_pad($i, 2, 0, STR_PAD_LEFT ); ?>
+                        <option value="<?= $i; ?>"><?= $i; ?></option>
+                    <?php } ?>
+                </select>
             </div>
         </div>
         <div class="form-group">

@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS auto_mouvement (
   type_mouvement CHAR(7) NOT NULL,
   montant INT NOT NULL,
   libelle CHAR(50),
-  frequency CHAR(50),
+  jour INT(2) NOT NULL DEFAULT 1,
   cron_error INT(1) DEFAULT 0,
   date_registration TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 ) DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;

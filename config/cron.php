@@ -24,8 +24,9 @@ function getPDO() {
 function execAutomaticMouvement() {
     $con = getPDO();
     $con->beginTransaction();
+    $day = $test = date('d');
 
-    $select = "SELECT * FROM auto_mouvement";
+    $select = 'SELECT * FROM auto_mouvement WHERE jour = ' . $day;
     $stmt = $con->query($select);
     $aAutoMvt = $stmt->fetchAll(PDO::FETCH_ASSOC);
     $stmt->closeCursor();

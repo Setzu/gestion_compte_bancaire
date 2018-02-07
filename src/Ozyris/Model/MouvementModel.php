@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: david
+ * User: david b.
  * Date: 01/08/17
  * Time: 09:30
  */
@@ -9,8 +9,8 @@
 namespace Ozyris\Model;
 
 
+use Ozyris\Service\Logs;
 use Ozyris\Service\Mouvement;
-use Ozyris\Service\Utils;
 
 class MouvementModel extends AbstractModel
 {
@@ -21,8 +21,8 @@ class MouvementModel extends AbstractModel
      */
     public function insertMouvement(Mouvement $oMouvement)
     {
-        $_SESSION['test']++;
-        $sql = "INSERT INTO mouvement (id_compte, type_mouvement, montant, libelle, automatic) VALUES (:id_compte, :type_mouvement, :montant, :libelle, :automatic)";
+        $sql = "INSERT INTO mouvement (id_compte, type_mouvement, montant, libelle, automatic)
+VALUES (:id_compte, :type_mouvement, :montant, :libelle, :automatic)";
         $stmt = $this->bdd->prepare($sql);
 
         $iIdCompte = $oMouvement->getIdCompte();
@@ -39,8 +39,11 @@ class MouvementModel extends AbstractModel
             $stmt->bindParam(':automatic', $iAutomatic);
 
             if (!$stmt->execute()) {
-//                $aSqlError = $stmt->errorInfo();
-                throw new \Exception(parent::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
         } catch(\Exception $e) {
             die($e->getMessage());
@@ -55,7 +58,8 @@ class MouvementModel extends AbstractModel
      */
     public function insertMouvementByInfosMouvement(array $aInfosMouvement)
     {
-        $sql = "INSERT INTO mouvement (id_compte, type_mouvement, montant, libelle, automatic) VALUES (:id_compte, :type_mouvement, :montant, :libelle, :automatic)";
+        $sql = "INSERT INTO mouvement (id_compte, type_mouvement, montant, libelle, automatic)
+VALUES (:id_compte, :type_mouvement, :montant, :libelle, :automatic)";
         $stmt = $this->bdd->prepare($sql);
 
         try {
@@ -66,8 +70,43 @@ class MouvementModel extends AbstractModel
             $stmt->bindParam(':automatic', $aInfosMouvement['automatic']);
 
             if (!$stmt->execute()) {
-//                $aSqlError = $stmt->errorInfo();
-                throw new \Exception(parent::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
+            }
+        } catch(\Exception $e) {
+            die($e->getMessage());
+        }
+
+        return $stmt->closeCursor();
+    }
+
+    /**
+     * @param $idCompte
+     * @param array $aInfosMouvement
+     * @return bool
+     */
+    public function insertAutomaticMouvement($idCompte, array $aInfosMouvement)
+    {
+        $sql = "INSERT INTO auto_mouvement (id_compte, type_mouvement, montant, libelle, jour)
+VALUES (:id_compte, :type_mouvement, :montant, :libelle, :jour)";
+        $stmt = $this->bdd->prepare($sql);
+
+        try {
+            $stmt->bindParam(':id_compte', $idCompte);
+            $stmt->bindParam(':type_mouvement', $aInfosMouvement['type']);
+            $stmt->bindParam(':montant', $aInfosMouvement['montant']);
+            $stmt->bindParam(':libelle', $aInfosMouvement['libelle']);
+            $stmt->bindParam(':jour', $aInfosMouvement['jour']);
+
+            if (!$stmt->execute()) {
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
         } catch(\Exception $e) {
             die($e->getMessage());
@@ -90,8 +129,11 @@ class MouvementModel extends AbstractModel
             $stmt->bindParam(':id', $iId);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(parent::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -114,8 +156,11 @@ class MouvementModel extends AbstractModel
             $stmt->bindParam(':id_compte', $idCompte);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(parent::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -139,8 +184,11 @@ class MouvementModel extends AbstractModel
             $stmt->bindParam(':libelle', $sLibelle);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(parent::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -164,8 +212,11 @@ class MouvementModel extends AbstractModel
             $stmt->bindParam(':montant', $iMontant);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(parent::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -192,8 +243,11 @@ class MouvementModel extends AbstractModel
             $stmt->bindParam(':type_mouvement', $sType);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(parent::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -220,8 +274,11 @@ class MouvementModel extends AbstractModel
             $stmt->bindParam(':montant', $iMontant);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(parent::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -248,8 +305,11 @@ class MouvementModel extends AbstractModel
             $stmt->bindParam(':libelle', $sLibelle);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(parent::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -292,8 +352,11 @@ class MouvementModel extends AbstractModel
             $stmt->bindParam(':id', $id);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(parent::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -316,8 +379,11 @@ class MouvementModel extends AbstractModel
             $stmt->bindParam(':id_compte', $iCompteId);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(parent::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {

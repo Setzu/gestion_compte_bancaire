@@ -161,7 +161,9 @@ abstract class SessionManager
      */
     public function flashMessages()
     {
-        if (array_key_exists(self::FLASH_MESSAGE, $_SESSION)) {
+        $aSession = $this->getSession();
+
+        if (array_key_exists(self::FLASH_MESSAGE, $aSession)) {
             echo '<ul>';
             foreach ($_SESSION[self::FLASH_MESSAGE] as $type => $message) {
                 echo "<div class='flashmessage alert alert-$type'><li>$message</li></div>";

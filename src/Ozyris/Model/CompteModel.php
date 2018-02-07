@@ -9,6 +9,7 @@
 namespace Ozyris\Model;
 
 use Ozyris\Service\Compte;
+use Ozyris\Service\Logs;
 
 class CompteModel extends AbstractModel
 {
@@ -22,7 +23,6 @@ class CompteModel extends AbstractModel
         $sql = "INSERT INTO compte (nom, solde) VALUES (:nom, :solde)";
         $stmt = $this->bdd->prepare($sql);
         $sNom = $oCompte->getNom();
-        $iNumero = $oCompte->getNuméro();
         $iSolde = $oCompte->getSolde();
 
         try {
@@ -30,8 +30,11 @@ class CompteModel extends AbstractModel
             $stmt->bindParam(':solde', $iSolde);
 
             if (!$stmt->execute()) {
-//                $aSqlError = $stmt->errorInfo();
-                throw new \Exception(parent::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
         } catch(\Exception $e) {
             die($e->getMessage());
@@ -61,8 +64,11 @@ class CompteModel extends AbstractModel
             $stmt->bindParam(':solde', $aInfosCompte['solde']);
 
             if (!$stmt->execute()) {
-//                $aSqlError = $stmt->errorInfo();
-                throw new \Exception(parent::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
         } catch(\Exception $e) {
             die($e->getMessage());
@@ -85,8 +91,11 @@ class CompteModel extends AbstractModel
             $stmt->bindParam(':id', $iId);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -110,8 +119,11 @@ class CompteModel extends AbstractModel
             $stmt->bindParam(':nom', $sName);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -131,8 +143,11 @@ class CompteModel extends AbstractModel
 
         try {
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -158,8 +173,11 @@ class CompteModel extends AbstractModel
             $stmt->bindParam(':solde', $iSolde);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -186,8 +204,11 @@ class CompteModel extends AbstractModel
             $stmt->bindParam(':nom', $sName);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -214,8 +235,11 @@ class CompteModel extends AbstractModel
             $stmt->bindParam(':solde', $iSolde);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -258,8 +282,11 @@ class CompteModel extends AbstractModel
             $stmt->bindParam(':id', $iId);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {

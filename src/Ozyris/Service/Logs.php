@@ -15,11 +15,11 @@ class Logs
     const BASE_FILE_PATH = '/../../../data/logs/';
 
     /**
-     * @param string $log
+     * @param mixed $log
      * @param string $fileName
      * @return bool
      */
-    public function insertFileLogs($log = '', $fileName = '')
+    static public function add($log, $fileName = '')
     {
         if (!is_string($fileName) || empty($fileName)) {
             $fileName = 'logs';
@@ -27,7 +27,19 @@ class Logs
 
         $sFile = __DIR__ . self::BASE_FILE_PATH . $fileName . '.txt';
         $logFile = fopen($sFile, 'a+');
-        fputs($logFile, date('d/m/Y H:i:s : ') . (string) $log . PHP_EOL);
+        $content = date('d/m/Y H:i:s : ');
+
+        if (is_array($log)) {
+            foreach ($log as $k => $v) {
+                if (is_string($v) || is_int($v)) {
+                    $content .= $k . ' => ' . $v . PHP_EOL;
+                }
+            }
+        } else {
+            $content .= $log . PHP_EOL;
+        }
+
+        fputs($logFile, $content);
 
         return fclose($logFile);
     }

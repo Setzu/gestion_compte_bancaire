@@ -6,11 +6,11 @@
  * Time: 10:06
  */
 
-namespace Ozyris\Service;
+namespace Ozyris\core;
 
 use Ozyris\Controller;
 
-abstract class Dispatch
+class Router
 {
     const DEFAULT_CONTROLLER = 'IndexController';
     const DEFAULT_ACTION = 'indexAction';
