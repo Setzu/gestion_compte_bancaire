@@ -18,6 +18,8 @@ abstract class SessionManager
     const DANGER = 'danger';
     const SUCCESS = 'success';
 
+    const ERROR_KEY = 'The key must be an integer or string type';
+
     public function __construct()
     {
         $this->startSession();
@@ -43,24 +45,24 @@ abstract class SessionManager
     /**
      * Enregistre $value en session
      *
-     * @param mixed $values
-     * @return array|mixed
+     * @param mixed $keys
+     * @param mixed $value
      * @throws \Exception
      */
-    public function setSessionValues($values)
+    public function setSessionValues($keys, $value = '')
     {
-        if (!is_array($values)) {
-            $_SESSION[] = $values;
-        } else {
-            foreach ($values as $k => $v) {
+        if(is_int($keys) || is_string($keys)) {
+            $_SESSION[$keys] = $value;
+        } elseif(is_array($keys)) {
+            foreach ($keys as $k => $v) {
+
                 if (!is_string($k) && !is_int($k)) {
-                    throw new \Exception('La clé doit être un entier ou une chaine de caractères.');
+                    throw new \Exception(self::ERROR_KEY);
                 }
+
                 $_SESSION[$k] = $v;
             }
         }
-
-        return $_SESSION;
     }
 
     /**
@@ -98,8 +100,8 @@ abstract class SessionManager
      */
     public function getSessionValue($key)
     {
-        if (!is_string($key) || !is_int($key)) {
-            throw new \Exception('La clé doit être un entier ou une chaine de caractères.');
+        if (!is_string($key) && !is_int($key)) {
+            throw new \Exception(self::ERROR_KEY);
         }
 
         if (array_key_exists($key, $_SESSION)) {
