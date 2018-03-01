@@ -8,6 +8,7 @@
 
 namespace Ozyris\Model;
 
+use Ozyris\Service\Logs;
 use Ozyris\Service\Users;
 
 class UserModel extends AbstractModel
@@ -40,8 +41,11 @@ class UserModel extends AbstractModel
             $stmt->bindParam(':admin', $bAdmin);
 
             if (!$stmt->execute()) {
-//                $aSqlError = $stmt->errorInfo();
-                throw new \Exception(parent::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
         } catch(\Exception $e) {
             die($e->getMessage());
@@ -68,8 +72,11 @@ class UserModel extends AbstractModel
             $stmt->bindParam(':username', $sValue);
             
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -98,8 +105,11 @@ class UserModel extends AbstractModel
             $stmt->bindParam(':email', $sValue);
 
             if (!$stmt->execute()) {
-//                $aSqlError = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
             
             $iResult = $stmt->fetchColumn();
@@ -129,8 +139,11 @@ class UserModel extends AbstractModel
             $stmt->bindParam(':token', $token);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
             
         } catch (\Exception $e) {
@@ -155,8 +168,11 @@ class UserModel extends AbstractModel
             $stmt->bindParam(':token', $token);
             
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
             
             $stmt->closeCursor();
@@ -183,8 +199,11 @@ class UserModel extends AbstractModel
             $stmt->bindParam(':email', $email);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
             
         } catch (\Exception $e) {
@@ -211,8 +230,11 @@ class UserModel extends AbstractModel
             $stmt->bindParam(':id', $id);
             
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
             
         } catch (\Exception $e) {

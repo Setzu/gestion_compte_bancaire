@@ -1,13 +1,17 @@
 /**
- * Created by david on 02/08/17.
+ * Created by david b. on 02/08/17.
  */
-$(document).ready(function() {
+
+$(function() {
+
+    $('.tabs').tabs();
 
     function format(d) {
         var _return = '';
         // Parcours de l'ensemble des lignes du tableau
         $.each(d, function(key, value) {
-            // Contrôle la td masquée du tableau qui comporte le détail
+            // Contrôle la td masquée du tableau qui comporte le détail (à modifier en cas d'ajout / suppression
+            // de lignes dans le tableau
             if(key == 5) {
                 _return = value.replace('display-none', '');
             }
@@ -15,7 +19,7 @@ $(document).ready(function() {
         return _return;
     }
 
-    var table = $('#liste-compte').dataTable({
+    var compte = $('#liste-compte').dataTable({
         "order": [[ 1, "asc" ]],
         // Définir ici autant de ligne que le tableau en possèdent
         "columns": [
@@ -48,7 +52,7 @@ $(document).ready(function() {
     //Add event listener for opening and closing details
     $('#liste-compte tbody').on('click', 'td.detail', function() {
         var tr = $(this).closest('tr');
-        var row = table.api().row(tr);
+        var row = compte.api().row(tr);
 
         if (row.child.isShown()) {
             row.child.hide();
@@ -56,6 +60,24 @@ $(document).ready(function() {
         } else {
             row.child(format(row.data())).show();
             tr.addClass('shown');
+        }
+    });
+
+    $('.mouvement').dataTable({
+        "order": [[ 4, "desc" ]],
+        "sDom": 'lrtip',
+        "bLengthChange": false,
+        "iDisplayLength": 10,
+        "language": {
+            "paginate": {
+                "previous": 'Précédent',
+                "next": 'Suivant'
+            },
+            "sZeroRecords": "Aucun mouvement pour ce compte. Vous pouvez en ajouter en cliquant sur le <span class='glyphicon glyphicon-plus></span>",
+            "sInfoEmpty": '(0)',
+            "sInfoFiltered": '',
+            "emptyTable": '',
+            "info": '_TOTAL_ mouvement(s) au total pour ce compte'
         }
     });
 });

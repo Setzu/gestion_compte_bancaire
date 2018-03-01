@@ -9,6 +9,7 @@
 namespace Ozyris\Model;
 
 use Ozyris\Service\Compte;
+use Ozyris\Service\Logs;
 
 class CompteModel extends AbstractModel
 {
@@ -19,20 +20,21 @@ class CompteModel extends AbstractModel
      */
     public function createCompte(Compte $oCompte)
     {
-        $sql = "INSERT INTO compte (nom, numero, solde) VALUES (:nom, :numero, :solde)";
+        $sql = "INSERT INTO compte (nom, solde) VALUES (:nom, :solde)";
         $stmt = $this->bdd->prepare($sql);
         $sNom = $oCompte->getNom();
-        $iNumero = $oCompte->getNuméro();
         $iSolde = $oCompte->getSolde();
 
         try {
             $stmt->bindParam(':nom', $sNom);
-            $stmt->bindParam(':numero', $iNumero);
             $stmt->bindParam(':solde', $iSolde);
 
             if (!$stmt->execute()) {
-//                $aSqlError = $stmt->errorInfo();
-                throw new \Exception(parent::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
         } catch(\Exception $e) {
             die($e->getMessage());
@@ -49,23 +51,24 @@ class CompteModel extends AbstractModel
     {
         if (
             !array_key_exists('nom', $aInfosCompte) ||
-            !array_key_exists('numero', $aInfosCompte) ||
             !array_key_exists('solde', $aInfosCompte)
         ) {
             return false;
         }
 
-        $sql = "INSERT INTO compte (nom, numero, solde) VALUES (:nom, :numero, :solde)";
+        $sql = "INSERT INTO compte (nom, solde) VALUES (:nom, :solde)";
         $stmt = $this->bdd->prepare($sql);
 
         try {
             $stmt->bindParam(':nom', $aInfosCompte['nom']);
-            $stmt->bindParam(':numero', $aInfosCompte['numero']);
             $stmt->bindParam(':solde', $aInfosCompte['solde']);
 
             if (!$stmt->execute()) {
-//                $aSqlError = $stmt->errorInfo();
-                throw new \Exception(parent::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
         } catch(\Exception $e) {
             die($e->getMessage());
@@ -88,33 +91,11 @@ class CompteModel extends AbstractModel
             $stmt->bindParam(':id', $iId);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
-            }
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
 
-        } catch (\Exception $e) {
-            die($e->getMessage());
-        }
-
-        return $stmt->fetch(\PDO::FETCH_ASSOC);
-    }
-
-    /**
-     * @param int $value
-     * @return array
-     */
-    public function selectCompteByNumero($value)
-    {
-        $sql = "SELECT * FROM compte WHERE numero = :numero";
-        $stmt = $this->bdd->prepare($sql);
-        $iNumero = (int) $value;
-
-        try {
-            $stmt->bindParam(':numero', $iNumero);
-
-            if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -138,8 +119,11 @@ class CompteModel extends AbstractModel
             $stmt->bindParam(':nom', $sName);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -159,8 +143,11 @@ class CompteModel extends AbstractModel
 
         try {
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -176,7 +163,7 @@ class CompteModel extends AbstractModel
      */
     public function updateSoldeByCompte(Compte $oCompte)
     {
-        $sql = "UPDATE compte SET solde = :solde WHERE id = :id";
+        $sql = "UPDATE compte SET solde = :solde, last_update = CURRENT_TIMESTAMP WHERE id = :id";
         $stmt = $this->bdd->prepare($sql);
         $iId = $oCompte->getId();
         $iSolde = $oCompte->getSolde();
@@ -186,8 +173,11 @@ class CompteModel extends AbstractModel
             $stmt->bindParam(':solde', $iSolde);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -202,9 +192,9 @@ class CompteModel extends AbstractModel
      * @param string $name
      * @return bool
      */
-    public function updateCompteNom($id, $name)
+    public function updateNomCompte($id, $name)
     {
-        $sql = "UPDATE compte SET nom = :nom WHERE id = :id";
+        $sql = "UPDATE compte SET nom = :nom, last_update = CURRENT_TIMESTAMP WHERE id = :id";
         $stmt = $this->bdd->prepare($sql);
         $iId = (int) $id;
         $sName = (string) $name;
@@ -214,8 +204,11 @@ class CompteModel extends AbstractModel
             $stmt->bindParam(':nom', $sName);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -232,7 +225,7 @@ class CompteModel extends AbstractModel
      */
     public function updateCompteSolde($id, $solde)
     {
-        $sql = "UPDATE compte SET solde = :solde WHERE id = :id";
+        $sql = "UPDATE compte SET solde = :solde, last_update = CURRENT_TIMESTAMP WHERE id = :id";
         $stmt = $this->bdd->prepare($sql);
         $iId = (int) $id;
         $iSolde = (int) $solde;
@@ -242,36 +235,11 @@ class CompteModel extends AbstractModel
             $stmt->bindParam(':solde', $iSolde);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
-            }
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
 
-        } catch (\Exception $e) {
-            die($e->getMessage());
-        }
-
-        return $stmt->closeCursor();
-    }
-
-    /**
-     * @param int $id
-     * @param int $numero
-     * @return bool
-     */
-    public function updateCompteNumero($id, $numero)
-    {
-        $sql = "UPDATE compte SET numero = :numero WHERE id = :id";
-        $stmt = $this->bdd->prepare($sql);
-        $iId = (int) $id;
-        $iNumero = (int) $numero;
-
-        try {
-            $stmt->bindParam(':id', $iId);
-            $stmt->bindParam(':numero', $iNumero);
-
-            if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {
@@ -314,8 +282,11 @@ class CompteModel extends AbstractModel
             $stmt->bindParam(':id', $iId);
 
             if (!$stmt->execute()) {
-//                $aSqlErrors = $stmt->errorInfo();
-                throw new \Exception(self::SQL_ERROR);
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
             }
 
         } catch (\Exception $e) {

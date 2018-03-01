@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: david
+ * User: david b.
  * Date: 31/07/17
  * Time: 17:38
  */
@@ -16,9 +16,9 @@ class Compte extends AbstractService
 
     protected $id;
     protected $nom;
-    protected $numero;
     protected $solde;
-    protected $lastModification;
+    protected $dateCreation;
+    protected $lastUpdate;
     private $oMouvement;
 
     /**
@@ -33,6 +33,7 @@ class Compte extends AbstractService
 
     /**
      * @param array $aInfos
+     * @throws \Exception
      */
     public function createCompte(array $aInfos)
     {
@@ -42,6 +43,7 @@ class Compte extends AbstractService
     /**
      * @param array $infos
      * @return bool
+     * @throws \Exception
      */
     public function updateCompteById(array $infos)
     {
@@ -51,9 +53,11 @@ class Compte extends AbstractService
     /**
      * @param string $type
      * @param int $montant
-     * @param string $ordre
+     * @param string $libelle
+     * @param int $iAutomatique
+     * @return bool
      */
-    public function addMouvement($type, $montant, $ordre = '')
+    public function addMouvement($type, $montant, $libelle = '', $iAutomatique = 0)
     {
         if ($type == self::DEPOT) {
             $this->setSolde($this->getSolde() + $montant);
@@ -61,7 +65,22 @@ class Compte extends AbstractService
             $this->setSolde($this->getSolde() - $montant);
         }
 
-        $this->oMouvement->addMouvement($type, (int) $montant, $this->getId(), $ordre);
+        /** @var Mouvement $oMouvement */
+        $oMouvement = $this->oMouvement;
+
+        return $oMouvement->addMouvement($type, (int) $montant, $this->getId(), $libelle, $iAutomatique);
+    }
+
+    /**
+     * @param array $aInfosMouvement
+     * @return bool
+     */
+    public function addAutomaticMouvement(array $aInfosMouvement)
+    {
+        /** @var Mouvement $oMouvement */
+        $oMouvement = $this->oMouvement;
+
+        return $oMouvement->addAutomaticMouvement($this->getId(), $aInfosMouvement);
     }
 
     /**
@@ -99,22 +118,6 @@ class Compte extends AbstractService
     /**
      * @return mixed
      */
-    public function getNumero()
-    {
-        return $this->numero;
-    }
-
-    /**
-     * @param mixed $numero
-     */
-    public function setNumero($numero)
-    {
-        $this->numero = $numero;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getSolde()
     {
         return $this->solde;
@@ -144,20 +147,37 @@ class Compte extends AbstractService
         $this->oMouvement = $oMouvement;
     }
 
+
     /**
      * @return mixed
      */
-    public function getLastModification()
+    public function getDateCreation()
     {
-        return $this->lastModification;
+        return $this->dateCreation;
     }
 
     /**
-     * @param mixed $lastModification
+     * @param mixed $dateCreation
      */
-    public function setLastModification($lastModification)
+    public function setDateCreation($dateCreation)
     {
-        $this->lastModification = $lastModification;
+        $this->dateCreation = $dateCreation;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLastUpdate()
+    {
+        return $this->lastUpdate;
+    }
+
+    /**
+     * @param mixed $lastUpdate
+     */
+    public function setLastUpdate($lastUpdate)
+    {
+        $this->lastUpdate = $lastUpdate;
     }
 
 }

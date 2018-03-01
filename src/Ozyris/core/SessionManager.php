@@ -6,7 +6,7 @@
  * Time: 10:14
  */
 
-namespace Ozyris\Service;
+namespace Ozyris\core;
 
 abstract class SessionManager
 {
@@ -17,6 +17,8 @@ abstract class SessionManager
     const FLASH_MESSAGE = 'flashmessage';
     const DANGER = 'danger';
     const SUCCESS = 'success';
+
+    const ERROR_KEY = 'The key must be an integer or string type';
 
     public function __construct()
     {
@@ -43,24 +45,24 @@ abstract class SessionManager
     /**
      * Enregistre $value en session
      *
-     * @param mixed $values
-     * @return array|mixed
+     * @param mixed $keys
+     * @param mixed $value
      * @throws \Exception
      */
-    public function setSessionValues($values)
+    public function setSessionValues($keys, $value = '')
     {
-        if (!is_array($values)) {
-            $_SESSION[] = $values;
-        } else {
-            foreach ($values as $k => $v) {
+        if(is_int($keys) || is_string($keys)) {
+            $_SESSION[$keys] = $value;
+        } elseif(is_array($keys)) {
+            foreach ($keys as $k => $v) {
+
                 if (!is_string($k) && !is_int($k)) {
-                    throw new \Exception('La clé doit être un entier ou une chaine de caractères.');
+                    throw new \Exception(self::ERROR_KEY);
                 }
+
                 $_SESSION[$k] = $v;
             }
         }
-
-        return $_SESSION;
     }
 
     /**
@@ -98,8 +100,8 @@ abstract class SessionManager
      */
     public function getSessionValue($key)
     {
-        if (!is_string($key) || !is_int($key)) {
-            throw new \Exception('La clé doit être un entier ou une chaine de caractères.');
+        if (!is_string($key) && !is_int($key)) {
+            throw new \Exception(self::ERROR_KEY);
         }
 
         if (array_key_exists($key, $_SESSION)) {
@@ -161,7 +163,9 @@ abstract class SessionManager
      */
     public function flashMessages()
     {
-        if (array_key_exists(self::FLASH_MESSAGE, $_SESSION)) {
+        $aSession = $this->getSession();
+
+        if (array_key_exists(self::FLASH_MESSAGE, $aSession)) {
             echo '<ul>';
             foreach ($_SESSION[self::FLASH_MESSAGE] as $type => $message) {
                 echo "<div class='flashmessage alert alert-$type'><li>$message</li></div>";

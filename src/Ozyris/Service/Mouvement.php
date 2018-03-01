@@ -1,13 +1,15 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: david
+ * User: david b.
  * Date: 01/08/17
  * Time: 09:27
  */
 
 namespace Ozyris\Service;
 
+
+use Ozyris\Model\MouvementModel;
 
 class Mouvement extends AbstractService
 {
@@ -16,31 +18,81 @@ class Mouvement extends AbstractService
     protected $idCompte;
     protected $type;
     protected $montant;
-    protected $ordre;
+    protected $libelle;
+    protected $automatic;
     protected $date;
 
+    private $mouvementModel;
+
+    public function __construct()
+    {
+        $this->setMouvementModel(new MouvementModel());
+    }
 
     /**
      * @param string $type
      * @param int $montant
-     * @param string $ordre
+     * @param int $idCompte
+     * @param string $libelle
+     * @param int $iAutomatique
+     * @return bool
      */
-    public function addMouvement($type, $montant, $idCompte, $ordre = '')
+    public function addMouvement($type, $montant, $idCompte, $libelle = '', $iAutomatique = 0)
     {
         $this->setIdCompte((int) $idCompte);
         $this->setType($type);
         $this->setMontant((int) $montant);
         $this->setDate(new \DateTime());
-        $this->setOrdre($ordre);
+        $this->setLibelle($libelle);
+        $this->setAutomatic($iAutomatique);
+
+        /** @var MouvementModel $oMouvementModel */
+        $oMouvementModel = $this->getMouvementModel();
+
+        return $oMouvementModel->insertMouvement($this);
     }
 
     /**
      * @param array $aModif
      * @return bool
+     * @throws \Exception
      */
-    public function updateMouvementById(array $aModif)
+    public function updateMouvement(array $aModif)
     {
         return $this->updateProperties($this, $aModif);
+    }
+
+    public function removeMouvementById($iId) {
+
+    }
+
+    /**
+     * @param int $idCompte
+     * @param array $aInfosMouvement
+     * @return bool
+     */
+    public function addAutomaticMouvement($idCompte, array $aInfosMouvement)
+    {
+        /** @var MouvementModel $oMouvementModel */
+        $oMouvementModel = $this->getMouvementModel();
+
+        return $oMouvementModel->insertAutomaticMouvement($idCompte, $aInfosMouvement);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMouvementModel()
+    {
+        return $this->mouvementModel;
+    }
+
+    /**
+     * @param mixed $mouvementModel
+     */
+    public function setMouvementModel($mouvementModel)
+    {
+        $this->mouvementModel = $mouvementModel;
     }
 
     /**
@@ -126,16 +178,32 @@ class Mouvement extends AbstractService
     /**
      * @return mixed
      */
-    public function getOrdre()
+    public function getAutomatic()
     {
-        return $this->ordre;
+        return $this->automatic;
     }
 
     /**
-     * @param mixed $ordre
+     * @param mixed $automatic
      */
-    public function setOrdre($ordre)
+    public function setAutomatic($automatic)
     {
-        $this->ordre = $ordre;
+        $this->automatic = $automatic;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLibelle()
+    {
+        return $this->libelle;
+    }
+
+    /**
+     * @param mixed $libelle
+     */
+    public function setLibelle($libelle)
+    {
+        $this->libelle = $libelle;
     }
 }

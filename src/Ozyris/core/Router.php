@@ -1,16 +1,16 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: david
+ * User: david b.
  * Date: 14/06/16
  * Time: 10:06
  */
 
-namespace Ozyris\Service;
+namespace Ozyris\core;
 
 use Ozyris\Controller;
 
-abstract class Dispatch
+class Router
 {
     const DEFAULT_CONTROLLER = 'IndexController';
     const DEFAULT_ACTION = 'indexAction';
@@ -19,6 +19,7 @@ abstract class Dispatch
      * Détermine le controller et l'action à appeler en fonction des paramètres passés dans l'url
      *
      * @return mixed
+     * @throws \Exception
      */
     public static function dispatch()
     {

@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: david
+ * User: david b.
  * Date: 31/07/17
  * Time: 17:26
  */
@@ -9,24 +9,23 @@
 namespace Ozyris\Controller;
 
 
-use Form;
+use Ozyris\Form\Form;
 use Ozyris\Model\CompteModel;
 use Ozyris\Model\MouvementModel;
 use Ozyris\Service\Compte;
 use Ozyris\Service\Mouvement;
+use Ozyris\Service\Utils;
 
 class CompteController extends AbstractController
 {
 
+    /**
+     * @throws \Exception
+     */
     public function indexAction()
     {
         if (!empty($_POST)) {
-//            $oForm = new Form();
-//            $aInfosCompte = $oForm->getFormValues();
-            $aInfosCompte = [];
-            $aInfosCompte['nom'] = (string) htmlspecialchars(trim($_POST['nom']));
-            $aInfosCompte['numero'] = (int) htmlspecialchars(trim($_POST['numero']));
-            $aInfosCompte['solde'] = (int) htmlspecialchars(trim($_POST['solde']));
+            $aInfosCompte = Form::getFormValues();
 
             $oCompteModel = new CompteModel();
             $oCompteModel->createCompteWithInfos($aInfosCompte);
@@ -37,6 +36,9 @@ class CompteController extends AbstractController
         return $this->render('compte');
     }
 
+    /**
+     * @throws \Exception
+     */
     public function updateCompteAction()
     {
         $iId = str_replace('$', '', urldecode($_GET['param']));
@@ -51,10 +53,7 @@ class CompteController extends AbstractController
         $oCompte->createCompte($aInfosCompte);
 
         if (!empty($_POST)) {
-            $aUpdateCompte = [];
-            $aUpdateCompte['nom'] = (string) htmlspecialchars(trim($_POST['nom']));
-            $aUpdateCompte['numero'] = (int) htmlspecialchars(trim($_POST['numero']));
-            $aUpdateCompte['solde'] = (int) htmlspecialchars(trim($_POST['solde']));
+            $aUpdateCompte = Form::getFormValues();
 
             $aModif = array_diff($aUpdateCompte, $aInfosCompte);
             $oCompte->updateCompteById($aModif);
@@ -70,9 +69,12 @@ class CompteController extends AbstractController
         return $this->redirect();
     }
 
+    /**
+     * @throws \Exception
+     */
     public function mouvementAction()
     {
-        $iId = str_replace('$', '', urldecode($_GET['param']));
+        $iId = (int) str_replace('$', '', urldecode($_GET['param']));
 
         if (empty($iId)) {
             return $this->redirect();
@@ -88,18 +90,26 @@ class CompteController extends AbstractController
                 return $this->redirect();
             }
 
-            $sType = (string) htmlspecialchars(trim($_POST['type']));
-            $iMontant = (int) htmlspecialchars(trim($_POST['montant']));
-            $sOrdre = (string) htmlspecialchars(trim($_POST['ordre']));
+            $aMouvement = Form::getFormValues();
+
+            if (!isset($aMouvement['type']) || !isset($aMouvement['montant']) || !array_key_exists('libelle', $aMouvement)) {
+                return $this->redirect();
+            }
 
             $oCompte = new Compte();
             $oCompte->createCompte($aInfosCompte);
-            $oCompte->addMouvement($sType, $iMontant, $sOrdre);
 
-            $oMouvementModel = new MouvementModel();
-            $oMouvementModel->insertMouvement($oCompte->getMouvement());
+            if (isset($aMouvement['mensuel'])) {
+                if (!is_int($aMouvement['jour']) || $aMouvement['jour'] > 28) {
+                    $this->setFlashMessage('Le jour saisi est incorrect');
+                    return $this->redirect('compte', 'mouvement');
+                }
+
+                $oCompte->addAutomaticMouvement($aMouvement);
+            }
+
+            $oCompte->addMouvement($aMouvement['type'], $aMouvement['montant'], $aMouvement['libelle']);
             $oCompteModel->updateSoldeByCompte($oCompte);
-
             $this->setFlashMessage('Le mouvement a bien été renseigné.', false);
 
             return $this->redirect();
@@ -110,6 +120,14 @@ class CompteController extends AbstractController
         return $this->render('compte', 'mouvement');
     }
 
+    public function autoMouvementAction()
+    {
+
+    }
+
+    /**
+     * @throws \Exception
+     */
     public function updateMouvementAction()
     {
         $iId = str_replace('$', '', urldecode($_GET['param']));
@@ -122,14 +140,11 @@ class CompteController extends AbstractController
         $aMouvement = $oMouvementModel->selectMouvementById($iId);
 
         if (!empty($_POST)) {
-            $aUpdateMouvement = [];
-            $aUpdateMouvement['type'] = (string) htmlspecialchars(trim($_POST['type']));
-            $aUpdateMouvement['montant'] = (int) htmlspecialchars(trim($_POST['montant']));
-            $aUpdateMouvement['ordre'] = (int) htmlspecialchars(trim($_POST['ordre']));
+            $aUpdateMouvement = Form::getFormValues();
 
             $aModif = array_diff($aUpdateMouvement, $aMouvement);
             $oMouvement = new Mouvement();
-            $oMouvement->updateMouvementById($aModif);
+            $oMouvement->updateMouvement($aModif);
             $oMouvementModel->updateMouvementById($aMouvement['id'], $aModif);
             $this->setFlashMessage('Le mouvement a bien été modifié.', false);
 
@@ -141,6 +156,9 @@ class CompteController extends AbstractController
         return $this->render('compte', 'updateMouvement');
     }
 
+    /**
+     * @throws \Exception
+     */
     public function deleteAction()
     {
         $iId = str_replace('$', '', urldecode($_GET['param']));
@@ -155,15 +173,46 @@ class CompteController extends AbstractController
         return $this->redirect();
     }
 
+    /**
+     * @throws \Exception
+     */
     public function deleteMouvementAction()
     {
         $iId = str_replace('$', '', urldecode($_GET['param']));
 
         $oMouvementModel = new MouvementModel();
+        $oCompte = new CompteModel();
+        $aInfosMouvement = $oMouvementModel->selectMouvementById($iId);
+
+        if (!is_array($aInfosMouvement) && !array_key_exists('id_compte', $aInfosMouvement) || !array_key_exists('type_mouvement', $aInfosMouvement)) {
+            $this->setFlashMessage('La suppression du mouvement n\'a pas abouti, veuillez réessayer ultérieurement. Si le problème persiste, merci de contacter l\'administrateur du site.');
+
+            return $this->redirect();
+        }
+
+        $aInfosCompte = $oCompte->selectCompteById($aInfosMouvement['id_compte']);
+
+        if (!is_array($aInfosCompte) && !array_key_exists('solde', $aInfosCompte)) {
+            $this->setFlashMessage('La suppression du mouvement n\'a pas abouti, veuillez réessayer ultérieurement. Si le problème persiste, merci de contacter l\'administrateur du site.');
+
+            return $this->redirect();
+        }
+
         $oMouvementModel->deleteMouvementById($iId);
+        $iMontantMouvement = ($aInfosMouvement['type_mouvement'] == 'depot') ? - $aInfosMouvement['montant'] : + $aInfosMouvement['montant'];
+        $iNewSolde = $aInfosCompte['solde'] + $iMontantMouvement;
+        $oCompte->updateCompteSolde($aInfosMouvement['id_compte'], $iNewSolde);
 
         $this->setFlashMessage('Le mouvement a bien été supprimé.', false);
 
         return $this->redirect();
+    }
+
+    /**
+     *
+     */
+    public function addPrelevementAction()
+    {
+
     }
 }
