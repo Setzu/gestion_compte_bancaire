@@ -77,18 +77,4 @@ class Form extends AbstractForm
     {
         parent::setSubmitInput($value, $class, $id);
     }
-
-    /**
-     * @return array
-     */
-    public static function getFormValues()
-    {
-        $values = [];
-
-        foreach ($_POST as $k => $v) {
-            $values[$k] = htmlspecialchars(trim($v));
-        }
-
-        return $values;
-    }
 }

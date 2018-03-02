@@ -10,7 +10,7 @@ namespace Ozyris\Controller;
 
 use Ozyris\core\Layout;
 use Ozyris\Service\AssetManager;
-use Ozyris\Service\SessionManager;
+use Ozyris\core\SessionManager;
 use Ozyris\Interfaces\ControllerInterface;
 
 abstract class AbstractController extends SessionManager implements ControllerInterface
@@ -68,7 +68,7 @@ abstract class AbstractController extends SessionManager implements ControllerIn
      * @return mixed
      * @throws \Exception
      */
-    protected function render($directory = '', $view = '', $disableLayout = false)
+    protected function render($directory = '', $view = '', $loadLayout = true)
     {
         if (empty($directory) || !is_string($directory)) {
             $directory = self::DEFAULT_DIRECTORY;
@@ -82,9 +82,13 @@ abstract class AbstractController extends SessionManager implements ControllerIn
 
         // Contrôle de l'existence du fichier
         if (file_exists($sFilePath)) {
-            if (!$disableLayout) {
+            if ($loadLayout) {
                 $oLayout = new Layout();
-                $this->setVariables(['content' => $sFilePath]);
+
+                $this->setVariables([
+                    'flashMessages' => $this->flashMessages(),
+                    'content' => $sFilePath
+                ]);
 
                 return require_once $oLayout->getLayout();
             }

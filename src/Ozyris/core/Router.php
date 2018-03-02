@@ -51,4 +51,20 @@ class Router
 
         return (new $sControllerName)->$sActionName();
     }
+
+    public static function getPostValues()
+    {
+        $values = [];
+
+        foreach ($_POST as $k => $v) {
+            $values[$k] = htmlspecialchars(trim($v));
+        }
+
+        return $values;
+    }
+
+    public static function getGetValues()
+    {
+        return htmlspecialchars($_GET['param']);
+    }
 }

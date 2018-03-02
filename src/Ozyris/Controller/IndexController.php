@@ -8,11 +8,12 @@
 
 namespace Ozyris\Controller;
 
+use Ozyris\core\SessionManager;
 use Ozyris\Model\CompteModel;
 use Ozyris\Model\MouvementModel;
 use Ozyris\Service\Compte;
 
-class IndexController extends AuthentificationController
+class IndexController extends AuthenticationController
 {
 
     /**
@@ -20,20 +21,28 @@ class IndexController extends AuthentificationController
      */
     public function indexAction()
     {
+        $aSession = $this->getSession();
         $aComptes = $aMouvements = [];
-        $oCompteModel = new CompteModel();
-        $aInfosCompte = $oCompteModel->selectAllCompte();
-        $oMouvementModel = new MouvementModel();
 
-        foreach ($aInfosCompte as $compte) {
-            $oCompte = new Compte();
-            $oCompte->createCompte($compte);
-            $aComptes[] = $oCompte;
-            $aMouvements[$oCompte->getId()] = $oMouvementModel->selectAllMouvementsByCompteId($oCompte->getId());
+        if (array_key_exists('isAuthentified', $aSession) && $aSession['isAuthentified']) {
+            $aComptes = $aMouvements = [];
+            $oCompteModel = new CompteModel();
+            $aListeComptes = $oCompteModel->selectAllCompte();
+            $oMouvementModel = new MouvementModel();
+
+            foreach ($aListeComptes as $aInfoCompte) {
+                $oCompte = new Compte();
+                $oCompte->createCompte($aInfoCompte);
+                $aComptes[$oCompte->getId()] = $oCompte;
+                $aMouvements[$oCompte->getId()] = $oMouvementModel->selectAllMouvementsByCompteId($oCompte->getId());
+            }
+
+            $this->setVariables(['oUser' => $aSession['oUser']]);
+            $this->setSessionValue('aListeComptes', $aListeComptes);
         }
 
         $this->setVariables([
-            'aListeComptes' => $aComptes,
+            'aComptes' => $aComptes,
             'aListeMouvements' => $aMouvements
         ]);
 

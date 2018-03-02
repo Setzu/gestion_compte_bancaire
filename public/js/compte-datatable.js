@@ -4,29 +4,18 @@
 
 $(function() {
 
-    $('.tabs').tabs();
-
-    function format(d) {
-        var _return = '';
-        // Parcours de l'ensemble des lignes du tableau
-        $.each(d, function(key, value) {
-            // Contrôle la td masquée du tableau qui comporte le détail (à modifier en cas d'ajout / suppression
-            // de lignes dans le tableau
-            if(key == 5) {
-                _return = value.replace('display-none', '');
-            }
-        });
-        return _return;
-    }
+    $('span.span-tabs > div.div-tabs').attr('id', this.id + '1');
+    $('div.tabs').tabs();
 
     var compte = $('#liste-compte').dataTable({
-        "order": [[ 1, "asc" ]],
-        // Définir ici autant de ligne que le tableau en possèdent
+        "order": [[ 1, "desc" ]],
+        // Définir ici autant de lignes que le nombre de <th> du tableau
         "columns": [
+            null,
+            null,
+            null,
             {"orderable": false},
-            null,
-            null,
-            null,
+            {"orderable": false},
             {"orderable": false},
             {
                 "orderable": false,
@@ -41,7 +30,7 @@ $(function() {
                 "previous": 'Précédent',
                 "next": 'Suivant'
             },
-            "sZeroRecords": "Vous ne possédez pas de compte.",
+            "sZeroRecords": 'Vous ne possédez pas de compte.',
             "sInfoEmpty": '(0)',
             "sInfoFiltered": '',
             "emptyTable": '',
@@ -63,21 +52,17 @@ $(function() {
         }
     });
 
-    $('.mouvement').dataTable({
-        "order": [[ 4, "desc" ]],
-        "sDom": 'lrtip',
-        "bLengthChange": false,
-        "iDisplayLength": 10,
-        "language": {
-            "paginate": {
-                "previous": 'Précédent',
-                "next": 'Suivant'
-            },
-            "sZeroRecords": "Aucun mouvement pour ce compte. Vous pouvez en ajouter en cliquant sur le <span class='glyphicon glyphicon-plus></span>",
-            "sInfoEmpty": '(0)',
-            "sInfoFiltered": '',
-            "emptyTable": '',
-            "info": '_TOTAL_ mouvement(s) au total pour ce compte'
-        }
-    });
+    function format(d) {
+        var _return = '';
+        // Parcours de l'ensemble des lignes du tableau
+        $.each(d, function(key, value) {
+            // Contrôle la <td> masquée du tableau qui comporte le détail (à modifier en cas d'ajout/suppression de <th> dans le tableau)
+            // La clé commence à 0
+            if(key == 7) {
+                _return = value.replace('display-none', 'test');
+            }
+        });
+
+        return _return;
+    }
 });

@@ -9,17 +9,21 @@
 namespace Ozyris\Service;
 
 
+use Ozyris\Model\CompteModel;
+
 class Compte extends AbstractService
 {
     const DEPOT = 'depot';
     const RETRAIT = 'retrait';
 
     protected $id;
+    protected $idUser;
     protected $nom;
     protected $solde;
     protected $dateCreation;
     protected $lastUpdate;
     private $oMouvement;
+    private $oCompteModel;
 
     /**
      * Injection de Mouvement
@@ -29,6 +33,7 @@ class Compte extends AbstractService
     public function __construct()
     {
         $this->setMouvement(new Mouvement());
+        $this->setCompteModel(new CompteModel());
     }
 
     /**
@@ -47,6 +52,10 @@ class Compte extends AbstractService
      */
     public function updateCompteById(array $infos)
     {
+        /** @var CompteModel $oCompteModel */
+        $oCompteModel = $this->getCompteModel();
+        $oCompteModel->updateCompteById($this->getId(), $infos);
+
         return $this->updateProperties($this, $infos);
     }
 
@@ -75,12 +84,12 @@ class Compte extends AbstractService
      * @param array $aInfosMouvement
      * @return bool
      */
-    public function addAutomaticMouvement(array $aInfosMouvement)
+    public function addAutomatiqueMouvement(array $aInfosMouvement)
     {
         /** @var Mouvement $oMouvement */
         $oMouvement = $this->oMouvement;
 
-        return $oMouvement->addAutomaticMouvement($this->getId(), $aInfosMouvement);
+        return $oMouvement->addAutomatiqueMouvement($this->getId(), $aInfosMouvement);
     }
 
     /**
@@ -178,6 +187,38 @@ class Compte extends AbstractService
     public function setLastUpdate($lastUpdate)
     {
         $this->lastUpdate = $lastUpdate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCompteModel()
+    {
+        return $this->oCompteModel;
+    }
+
+    /**
+     * @param mixed $oCompteModel
+     */
+    public function setCompteModel($oCompteModel)
+    {
+        $this->oCompteModel = $oCompteModel;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @param mixed $idUser
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
     }
 
 }

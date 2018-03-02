@@ -5,10 +5,6 @@
  * Date: 26/05/16
  * Time: 13:54
  */
-
-use Ozyris\Controller\IndexController;
-
-$oIndexController = new IndexController();
 ?>
 
 <!DOCTYPE html>
@@ -32,14 +28,14 @@ $oIndexController = new IndexController();
 </header>
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <?php $oIndexController->flashMessages(); ?>
+    <?php if (isset($this->flashMessages) && !empty($this->flashMessages)) { ?>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <?php echo $this->flashMessages; ?>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <?php include_once ($this->content); ?>
-    </div>
+    <?php } ?>
+    <?php include_once ($this->content); ?>
 </div>
 
 <footer>

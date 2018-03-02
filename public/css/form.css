@@ -4,6 +4,7 @@
     border: 1px solid #dddddd;
 }
 .title-form {
+    margin-top: 0;
     margin-bottom: 20px;
     text-align: center;
 }

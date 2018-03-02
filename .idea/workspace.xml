@@ -2,31 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8afaeca7-9d66-46e5-baaa-aa49a0fbb5cb" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/public/js/mouvement.js" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/php.xml" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/data/sql/histo_compte.sql" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/data/sql/histo_mouvements.sql" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Ozyris/View/authentication/index.php" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/src/Ozyris/View/authentication/signup.php" />
+      <change beforePath="$PROJECT_DIR$/.idea/compte.iml" afterPath="$PROJECT_DIR$/.idea/compte.iml" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/config/cron.php" afterPath="$PROJECT_DIR$/config/cron.php" />
-      <change beforePath="$PROJECT_DIR$/data/sql/auto_mouvement.sql" afterPath="$PROJECT_DIR$/data/sql/auto_mouvement.sql" />
+      <change beforePath="$PROJECT_DIR$/data/sql/compte.sql" afterPath="$PROJECT_DIR$/data/sql/compte.sql" />
+      <change beforePath="$PROJECT_DIR$/data/sql/mouvement.sql" afterPath="$PROJECT_DIR$/data/sql/mouvement.sql" />
+      <change beforePath="$PROJECT_DIR$/data/sql/users.sql" afterPath="$PROJECT_DIR$/data/sql/users.sql" />
+      <change beforePath="$PROJECT_DIR$/public/.htaccess" afterPath="$PROJECT_DIR$/public/.htaccess" />
       <change beforePath="$PROJECT_DIR$/public/css/form.css" afterPath="$PROJECT_DIR$/public/css/form.css" />
-      <change beforePath="$PROJECT_DIR$/public/index.php" afterPath="$PROJECT_DIR$/public/index.php" />
+      <change beforePath="$PROJECT_DIR$/public/css/global.css" afterPath="$PROJECT_DIR$/public/css/global.css" />
       <change beforePath="$PROJECT_DIR$/public/js/compte-datatable.js" afterPath="$PROJECT_DIR$/public/js/compte-datatable.js" />
       <change beforePath="$PROJECT_DIR$/public/js/mouvement-datatable.js" afterPath="$PROJECT_DIR$/public/js/mouvement-datatable.js" />
       <change beforePath="$PROJECT_DIR$/src/Ozyris/Controller/AbstractController.php" afterPath="$PROJECT_DIR$/src/Ozyris/Controller/AbstractController.php" />
+      <change beforePath="$PROJECT_DIR$/src/Ozyris/Controller/AuthentificationController.php" afterPath="$PROJECT_DIR$/src/Ozyris/Controller/AuthenticationController.php" />
       <change beforePath="$PROJECT_DIR$/src/Ozyris/Controller/CompteController.php" afterPath="$PROJECT_DIR$/src/Ozyris/Controller/CompteController.php" />
+      <change beforePath="$PROJECT_DIR$/src/Ozyris/Controller/IndexController.php" afterPath="$PROJECT_DIR$/src/Ozyris/Controller/IndexController.php" />
+      <change beforePath="$PROJECT_DIR$/src/Ozyris/Form/Form.php" afterPath="$PROJECT_DIR$/src/Ozyris/Form/Form.php" />
+      <change beforePath="$PROJECT_DIR$/src/Ozyris/Model/AbstractModel.php" afterPath="$PROJECT_DIR$/src/Ozyris/Model/AbstractModel.php" />
       <change beforePath="$PROJECT_DIR$/src/Ozyris/Model/CompteModel.php" afterPath="$PROJECT_DIR$/src/Ozyris/Model/CompteModel.php" />
       <change beforePath="$PROJECT_DIR$/src/Ozyris/Model/MouvementModel.php" afterPath="$PROJECT_DIR$/src/Ozyris/Model/MouvementModel.php" />
-      <change beforePath="$PROJECT_DIR$/src/Ozyris/Model/UserModel.php" afterPath="$PROJECT_DIR$/src/Ozyris/Model/UserModel.php" />
+      <change beforePath="$PROJECT_DIR$/src/Ozyris/Service/AssetManager.php" afterPath="$PROJECT_DIR$/src/Ozyris/Service/AssetManager.php" />
       <change beforePath="$PROJECT_DIR$/src/Ozyris/Service/Compte.php" afterPath="$PROJECT_DIR$/src/Ozyris/Service/Compte.php" />
-      <change beforePath="$PROJECT_DIR$/src/Ozyris/Service/Dispatch.php" afterPath="$PROJECT_DIR$/src/Ozyris/core/Router.php" />
-      <change beforePath="$PROJECT_DIR$/src/Ozyris/Service/Logs.php" afterPath="$PROJECT_DIR$/src/Ozyris/Service/Logs.php" />
+      <change beforePath="$PROJECT_DIR$/src/Ozyris/Service/Cron.php" afterPath="$PROJECT_DIR$/src/Ozyris/Service/Cron.php" />
       <change beforePath="$PROJECT_DIR$/src/Ozyris/Service/Mouvement.php" afterPath="$PROJECT_DIR$/src/Ozyris/Service/Mouvement.php" />
-      <change beforePath="$PROJECT_DIR$/src/Ozyris/Service/SessionManager.php" afterPath="$PROJECT_DIR$/src/Ozyris/Service/SessionManager.php" />
+      <change beforePath="$PROJECT_DIR$/src/Ozyris/Service/Utils.php" afterPath="$PROJECT_DIR$/src/Ozyris/Service/Utils.php" />
+      <change beforePath="$PROJECT_DIR$/src/Ozyris/View/authentification/index.php" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/src/Ozyris/View/authentification/registration.php" afterPath="" />
       <change beforePath="$PROJECT_DIR$/src/Ozyris/View/compte/index.php" afterPath="$PROJECT_DIR$/src/Ozyris/View/compte/index.php" />
       <change beforePath="$PROJECT_DIR$/src/Ozyris/View/compte/mouvement.php" afterPath="$PROJECT_DIR$/src/Ozyris/View/compte/mouvement.php" />
       <change beforePath="$PROJECT_DIR$/src/Ozyris/View/compte/updateCompte.php" afterPath="$PROJECT_DIR$/src/Ozyris/View/compte/updateCompte.php" />
       <change beforePath="$PROJECT_DIR$/src/Ozyris/View/compte/updateMouvement.php" afterPath="$PROJECT_DIR$/src/Ozyris/View/compte/updateMouvement.php" />
+      <change beforePath="$PROJECT_DIR$/src/Ozyris/View/error/404.php" afterPath="$PROJECT_DIR$/src/Ozyris/View/error/404.php" />
       <change beforePath="$PROJECT_DIR$/src/Ozyris/View/index/index.php" afterPath="$PROJECT_DIR$/src/Ozyris/View/index/index.php" />
       <change beforePath="$PROJECT_DIR$/src/Ozyris/View/layout/footer.php" afterPath="$PROJECT_DIR$/src/Ozyris/View/layout/footer.php" />
+      <change beforePath="$PROJECT_DIR$/src/Ozyris/View/layout/header.php" afterPath="$PROJECT_DIR$/src/Ozyris/View/layout/header.php" />
       <change beforePath="$PROJECT_DIR$/src/Ozyris/View/layout/layout.php" afterPath="$PROJECT_DIR$/src/Ozyris/View/layout/layout.php" />
+      <change beforePath="$PROJECT_DIR$/src/Ozyris/core/Router.php" afterPath="$PROJECT_DIR$/src/Ozyris/core/Router.php" />
+      <change beforePath="$PROJECT_DIR$/src/Ozyris/core/SessionManager.php" afterPath="$PROJECT_DIR$/src/Ozyris/core/SessionManager.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,26 +52,73 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="AbstractController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Ozyris/Controller/AbstractController.php">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ozyris/View/authentication/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="109" column="35" lean-forward="true" selection-start-line="109" selection-start-column="35" selection-end-line="109" selection-end-column="35" />
-              <folding>
-                <element signature="e#120#143#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="0">
+              <caret line="34" column="14" lean-forward="false" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="layout.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Ozyris/View/layout/layout.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="705">
-              <caret line="52" column="7" lean-forward="true" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
+            <state relative-caret-position="375">
+              <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="36" selection-end-column="14" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AbstractForm.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ozyris/Form/AbstractForm.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CompteController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ozyris/Controller/CompteController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="470">
+              <caret line="112" column="32" lean-forward="false" selection-start-line="112" selection-start-column="32" selection-end-line="112" selection-end-column="32" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SessionManager.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Ozyris/core/SessionManager.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-420">
+              <caret line="91" column="19" lean-forward="false" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="19" />
+              <folding>
+                <marker date="1518787646511" expanded="true" signature="4265:4271" ph=" " />
+                <marker date="1518787646511" expanded="true" signature="4271:4277" ph=" " />
+                <marker date="1518787646511" expanded="true" signature="4277:4283" ph=" " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -64,8 +128,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -77,6 +141,14 @@
       <find>pdo</find>
       <find>var_du</find>
       <find>'File : ' .</find>
+      <find>La clé doit être un entier ou une chaine de caractères.</find>
+      <find>setSessionValues</find>
+      <find>ERROR_</find>
+      <find>token</find>
+      <find>automatic</find>
+      <find>addAuto</find>
+      <find>rollback</find>
+      <find>setVa</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$</dir>
@@ -88,57 +160,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/data/sql/mouvement.sql" />
-        <option value="$PROJECT_DIR$/src/Ozyris/Controller/IndexController.php" />
-        <option value="$PROJECT_DIR$/data/sql/compte.sql" />
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/public/css/global.css" />
-        <option value="$PROJECT_DIR$/src/Ozyris/Service/RouterException.php" />
-        <option value="$PROJECT_DIR$/config/config.php" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/src/Ozyris/core/ModuleException.php" />
-        <option value="$PROJECT_DIR$/config/application.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/Service/Router.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/core/Module.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/Service/Route.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/core/RouterException.php" />
-        <option value="$PROJECT_DIR$/config/cron_mouvements.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/core/Router.php" />
-        <option value="$PROJECT_DIR$/config/routes.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/core/Route.php" />
-        <option value="$PROJECT_DIR$/config/bdd.php" />
-        <option value="$PROJECT_DIR$/public/.htaccess" />
-        <option value="$PROJECT_DIR$/data/logs/cron_logs.txt" />
-        <option value="$PROJECT_DIR$/src/Ozyris/Form/Form.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/Form/AbstractForm.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/Service/Utils.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/Model/CompteModel.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/Model/UserModel.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/Service/Logs.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/Service/Mouvement.php" />
-        <option value="$PROJECT_DIR$/public/css/form.css" />
-        <option value="$PROJECT_DIR$/src/Ozyris/Service/Compte.php" />
         <option value="$PROJECT_DIR$/public/js/ajax-mouvement.js" />
-        <option value="$PROJECT_DIR$/src/Ozyris/View/compte/updateCompte.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/View/compte/updateMouvement.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/View/compte/index.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/View/layout/footer.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/View/index/index.php" />
-        <option value="$PROJECT_DIR$/public/js/mouvement-datatable.js" />
-        <option value="$PROJECT_DIR$/public/js/compte-datatable.js" />
         <option value="$PROJECT_DIR$/data/sql/auto_mouvement.sql" />
-        <option value="$PROJECT_DIR$/src/Ozyris/Model/MouvementModel.php" />
         <option value="$PROJECT_DIR$/config/cron.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/View/compte/mouvement.php" />
         <option value="$PROJECT_DIR$/public/js/mouvement.js" />
-        <option value="$PROJECT_DIR$/src/Ozyris/Controller/CompteController.php" />
-        <option value="$PROJECT_DIR$/src/Ozyris/Service/SessionManager.php" />
         <option value="$PROJECT_DIR$/src/Ozyris/Service/Dispatch.php" />
         <option value="$PROJECT_DIR$/src/Ozyris/core/Dispatch.php" />
         <option value="$PROJECT_DIR$/public/index.php" />
         <option value="$PROJECT_DIR$/src/Ozyris/core/Layout.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/Service/SessionManager.php" />
+        <option value="$PROJECT_DIR$/data/sql/users.sql" />
+        <option value="$PROJECT_DIR$/src/Ozyris/Service/AssetManager.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/Service/Cron.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/View/layout/footer.php" />
+        <option value="$PROJECT_DIR$/public/.htaccess" />
+        <option value="$PROJECT_DIR$/src/Ozyris/Form/Form.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/core/Router.php" />
+        <option value="$PROJECT_DIR$/config/application.php" />
+        <option value="$PROJECT_DIR$/data/sql/mouvement.sql" />
+        <option value="$PROJECT_DIR$/data/sql/histo_mouvements.sql" />
+        <option value="$PROJECT_DIR$/data/sql/histo_compte.sql" />
+        <option value="$PROJECT_DIR$/src/Ozyris/Service/Mouvement.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/Model/MouvementModel.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/View/authentification/registration.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/View/authentification/index.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/Controller/AuthentificationController.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/View/authentification/signup.php" />
+        <option value="$PROJECT_DIR$/public/css/404.css" />
+        <option value="$PROJECT_DIR$/src/Ozyris/View/compte/updateCompte.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/View/compte/updateMouvement.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/View/compte/index.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/Controller/AuthenticationController.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/Controller/IndexController.php" />
+        <option value="$PROJECT_DIR$/public/css/form.css" />
+        <option value="$PROJECT_DIR$/src/Ozyris/View/authentication/index.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/View/authentication/signup.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/View/layout/header.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/View/error/404.php" />
+        <option value="$PROJECT_DIR$/public/js/mouvement-datatable.js" />
+        <option value="$PROJECT_DIR$/src/Ozyris/View/compte/mouvement.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/Service/Compte.php" />
+        <option value="$PROJECT_DIR$/data/sql/compte.sql" />
+        <option value="$PROJECT_DIR$/src/Ozyris/Controller/CompteController.php" />
         <option value="$PROJECT_DIR$/src/Ozyris/View/layout/layout.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/core/SessionManager.php" />
         <option value="$PROJECT_DIR$/src/Ozyris/Controller/AbstractController.php" />
+        <option value="$PROJECT_DIR$/public/css/global.css" />
+        <option value="$PROJECT_DIR$/src/Ozyris/Model/AbstractModel.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/View/index/index.php" />
+        <option value="$PROJECT_DIR$/public/js/compte-datatable.js" />
+        <option value="$PROJECT_DIR$/src/Ozyris/Model/CompteModel.php" />
+        <option value="$PROJECT_DIR$/src/Ozyris/Service/Utils.php" />
       </list>
     </option>
   </component>
@@ -148,12 +220,40 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
+    <include_path>
+      <path value="$PROJECT_DIR$/vendor/composer" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/type-resolver" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-common" />
+      <path value="$PROJECT_DIR$/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/vendor/phpdocumentor/reflection-docblock" />
+      <path value="$PROJECT_DIR$/vendor/phpspec/prophecy" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-token-stream" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-code-coverage" />
+      <path value="$PROJECT_DIR$/vendor/symfony/yaml" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-text-template" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit-mock-objects" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-file-iterator" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/php-timer" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/version" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/resource-operations" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/code-unit-reverse-lookup" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/recursion-context" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/exporter" />
+      <path value="$PROJECT_DIR$/vendor/myclabs/deep-copy" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/environment" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/global-state" />
+      <path value="$PROJECT_DIR$/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/vendor/sebastian/comparator" />
+    </include_path>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="65" />
-    <option name="y" value="-4" />
-    <option name="width" value="1855" />
-    <option name="height" value="987" />
+    <option name="x" value="172" />
+    <option name="width" value="1384" />
+    <option name="height" value="912" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -170,8 +270,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -182,29 +282,7 @@
             <path>
               <item name="compte" type="b2602c69:ProjectViewProjectNode" />
               <item name="compte" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="compte" type="b2602c69:ProjectViewProjectNode" />
-              <item name="compte" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="data" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="compte" type="b2602c69:ProjectViewProjectNode" />
-              <item name="compte" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="data" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="sql" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="compte" type="b2602c69:ProjectViewProjectNode" />
-              <item name="compte" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="compte" type="b2602c69:ProjectViewProjectNode" />
-              <item name="compte" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="public" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="js" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="compte" type="b2602c69:ProjectViewProjectNode" />
@@ -216,6 +294,13 @@
               <item name="compte" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Ozyris" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="compte" type="b2602c69:ProjectViewProjectNode" />
+              <item name="compte" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Ozyris" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="compte" type="b2602c69:ProjectViewProjectNode" />
@@ -229,7 +314,7 @@
               <item name="compte" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Ozyris" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Service" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Form" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="compte" type="b2602c69:ProjectViewProjectNode" />
@@ -237,14 +322,6 @@
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Ozyris" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="compte" type="b2602c69:ProjectViewProjectNode" />
-              <item name="compte" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Ozyris" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="View" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="compte" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="compte" type="b2602c69:ProjectViewProjectNode" />
@@ -263,6 +340,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="settings.editor.selected.configurable" value="fileTemplates" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -307,28 +385,57 @@
       <workItem from="1517833496094" duration="15930000" />
       <workItem from="1517908984559" duration="19553000" />
       <workItem from="1517947285620" duration="2197000" />
-      <workItem from="1517995486838" duration="26564000" />
+      <workItem from="1517995486838" duration="26802000" />
+      <workItem from="1518080603221" duration="3318000" />
+      <workItem from="1518084960689" duration="6391000" />
+      <workItem from="1518098162692" duration="6873000" />
+      <workItem from="1518191942824" duration="1604000" />
+      <workItem from="1518422237201" duration="23343000" />
+      <workItem from="1518507245128" duration="15099000" />
+      <workItem from="1518599025295" duration="17563000" />
+      <workItem from="1518679495944" duration="21884000" />
+      <workItem from="1518767229403" duration="20140000" />
+      <workItem from="1519032845857" duration="8658000" />
+      <workItem from="1519053120223" duration="85000" />
+      <workItem from="1519053623206" duration="580000" />
+      <workItem from="1519055237280" duration="2259000" />
+      <workItem from="1519117686917" duration="109000" />
+      <workItem from="1519135040881" duration="10181000" />
+      <workItem from="1519230720711" duration="46000" />
+      <workItem from="1519232413091" duration="195000" />
+      <workItem from="1519290774753" duration="284000" />
+      <workItem from="1519291086675" duration="42000" />
+      <workItem from="1519295568346" duration="1312000" />
+      <workItem from="1519307246662" duration="691000" />
+      <workItem from="1519315792726" duration="607000" />
+      <workItem from="1519317295032" duration="605000" />
+      <workItem from="1519377144990" duration="940000" />
+      <workItem from="1519383452014" duration="5302000" />
+      <workItem from="1519656618223" duration="915000" />
+      <workItem from="1519717211168" duration="1559000" />
+      <workItem from="1519810627774" duration="61000" />
+      <workItem from="1519810902903" duration="794000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168684000" />
+    <option name="totallyTimeSpent" value="320362000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="-4" width="1922" height="910" extended-state="6" />
+    <frame x="-1" y="0" width="1922" height="958" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2015625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32920793" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827103" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -346,154 +453,51 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="6" />
+      <option name="time" value="8" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/css/global.css">
+    <entry file="file://$PROJECT_DIR$/public/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="1" lean-forward="true" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+        <state relative-caret-position="60">
+          <caret line="4" column="55" lean-forward="true" selection-start-line="4" selection-start-column="55" selection-end-line="4" selection-end-column="55" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/config.php" />
-    <entry file="file://$PROJECT_DIR$/composer.json">
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/test.php" />
+    <entry file="file://$PROJECT_DIR$/data/sql/histo_compte.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/core/ModuleException.php">
+    <entry file="file://$PROJECT_DIR$/data/sql/auto_mouvement.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/core/RouterException.php" />
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/core/Module.php">
+    <entry file="file://$PROJECT_DIR$/config/cron.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="19" column="27" lean-forward="false" selection-start-line="19" selection-start-column="27" selection-end-line="19" selection-end-column="27" />
+        <state relative-caret-position="405">
+          <caret line="56" column="0" lean-forward="true" selection-start-line="56" selection-start-column="0" selection-end-line="56" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_1.php">
+    <entry file="file://$PROJECT_DIR$/data/sql/histo_mouvements.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="53" column="9" lean-forward="false" selection-start-line="53" selection-start-column="9" selection-end-line="53" selection-end-column="9" />
-          <folding />
+        <state relative-caret-position="135">
+          <caret line="9" column="35" lean-forward="true" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/core/Router.php" />
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/core/Route.php" />
-    <entry file="file://$PROJECT_DIR$/config/routes.php" />
-    <entry file="file://$PROJECT_DIR$/config/bdd.php" />
-    <entry file="file://$PROJECT_DIR$/config/cron_mouvements.php">
+    <entry file="file://$PROJECT_DIR$/data/logs/logs.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="33" column="6" lean-forward="true" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="16" lean-forward="true" selection-start-line="4" selection-start-column="16" selection-end-line="4" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="10" lean-forward="false" selection-start-line="1" selection-start-column="10" selection-end-line="1" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/phpunit/phpunit/tests/TextUI/phpt-env.phpt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="4" lean-forward="false" selection-start-line="7" selection-start-column="4" selection-end-line="7" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/Service/Utils.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/application.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="10" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/Form/AbstractForm.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="45" column="7" lean-forward="false" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/sql/mouvement.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/Form/Form.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1130">
-          <caret line="83" column="27" lean-forward="false" selection-start-line="83" selection-start-column="27" selection-end-line="83" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/PDO/PDO.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="1269" column="64" lean-forward="false" selection-start-line="1269" selection-start-column="64" selection-end-line="1269" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/Model/UserModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3465">
-          <caret line="236" column="52" lean-forward="false" selection-start-line="236" selection-start-column="52" selection-end-line="236" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/Model/CompteModel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="24" column="35" lean-forward="false" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
-          <folding>
-            <element signature="e#112#138#0#PHP" expanded="false" />
-            <marker date="1517923522386" expanded="true" signature="346:399" ph="INSERT INTO compte... " />
-            <marker date="1517923522386" expanded="true" signature="1347:1400" ph="INSERT INTO compte... " />
-            <marker date="1517923522386" expanded="true" signature="2105:2140" ph="SELECT * FRO... compte" />
-            <marker date="1517923522386" expanded="true" signature="2817:2854" ph="SELECT * FRO... compte" />
-            <marker date="1517923522386" expanded="true" signature="3496:3516" ph="SELECT * FRO... compte" />
-            <marker date="1517923522386" expanded="true" signature="4129:4209" ph="UPDATE compte... " />
-            <marker date="1517923522386" expanded="true" signature="4984:5060" ph="UPDATE compte... " />
-            <marker date="1517923522386" expanded="true" signature="5818:5898" ph="UPDATE compte... " />
-            <marker date="1517923522386" expanded="true" signature="7008:7041" ph="DELETE FROM compte... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/Service/Logs.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="31" column="29" lean-forward="false" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
+        <state relative-caret-position="270">
+          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -504,247 +508,323 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data/logs/logs.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/form.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/compte/updateCompte.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/compte/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/compte/updateMouvement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="11" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/lib/jquery-ui.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/layout/footer.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/compte-datatable.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Ozyris/Model/MouvementModel.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="101" column="60" lean-forward="false" selection-start-line="101" selection-start-column="60" selection-end-line="101" selection-end-column="60" />
-          <folding>
-            <marker date="1518011571652" expanded="true" signature="371:518" ph="INSERT INTO mouvement... " />
-            <marker date="1518011571652" expanded="true" signature="1671:1818" ph="INSERT INTO mouvement... " />
-            <marker date="1518011571652" expanded="true" signature="2846:2988" ph="INSERT INTO auto_mouvement... " />
-            <marker date="1518011571652" expanded="true" signature="3903:3941" ph="SELECT * FRO... mouvement" />
-            <marker date="1518011571652" expanded="true" signature="4623:4675" ph="SELECT * FRO... mouvement" />
-            <marker date="1518011571652" expanded="true" signature="5342:5390" ph="SELECT * FRO... mouvement" />
-            <marker date="1518011571652" expanded="true" signature="6089:6137" ph="SELECT * FRO... mouvement" />
-            <marker date="1518011571652" expanded="true" signature="6851:6919" ph="UPDATE mouvement... " />
-            <marker date="1518011571652" expanded="true" signature="7697:7749" ph="UPDATE mouvement... " />
-            <marker date="1518011571652" expanded="true" signature="8529:8583" ph="UPDATE mouvement... " />
-            <marker date="1518011571652" expanded="true" signature="9713:9749" ph="DELETE FROM mouvement... " />
-            <marker date="1518011571652" expanded="true" signature="10416:10466" ph="DELETE FROM mouvement... " />
-          </folding>
+        <state relative-caret-position="-900">
+          <caret line="156" column="42" lean-forward="true" selection-start-line="156" selection-start-column="42" selection-end-line="156" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/Service/Mouvement.php">
+    <entry file="file://$PROJECT_DIR$/public/css/404.css" />
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/compte/updateCompte.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="78" column="54" lean-forward="false" selection-start-line="78" selection-start-column="54" selection-end-line="78" selection-end-column="54" />
-          <folding />
+        <state relative-caret-position="75">
+          <caret line="10" column="119" lean-forward="false" selection-start-line="10" selection-start-column="119" selection-end-line="10" selection-end-column="119" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/Service/Compte.php">
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/Service/Users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="82" column="48" lean-forward="false" selection-start-line="82" selection-start-column="48" selection-end-line="82" selection-end-column="48" />
-          <folding />
+        <state relative-caret-position="300">
+          <caret line="25" column="20" lean-forward="false" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/Model/UserModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="62" column="20" lean-forward="false" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/Controller/AuthenticationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="112" column="41" lean-forward="false" selection-start-line="112" selection-start-column="41" selection-end-line="112" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/authentication/signup.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="46" column="14" lean-forward="true" selection-start-line="46" selection-start-column="14" selection-end-line="46" selection-end-column="14" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/mouvement-datatable.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#43#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/index/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="58" column="36" lean-forward="true" selection-start-line="58" selection-start-column="36" selection-end-line="58" selection-end-column="36" />
-          <folding>
-            <marker date="1518008628824" expanded="true" signature="999:1804" ph="..." />
-            <marker date="1518008628824" expanded="true" signature="1023:1438" ph="..." />
-            <marker date="1518008628824" expanded="true" signature="1044:1413" ph="..." />
-            <marker date="1518008628824" expanded="true" signature="1462:1804" ph="..." />
-            <marker date="1518008628824" expanded="true" signature="1696:1804" ph="..." />
-            <marker date="1518008628824" expanded="true" signature="1725:1804" ph="..." />
-            <marker date="1518008628824" expanded="true" signature="2290:2359" ph="..." />
-            <marker date="1518008628824" expanded="true" signature="2581:3166" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/sql/auto_mouvement.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard/standard_2.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="281" column="9" lean-forward="false" selection-start-line="281" selection-start-column="9" selection-end-line="281" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/cron.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding>
-            <marker date="1518011685136" expanded="true" signature="431:472" ph="SELECT * FRO... auto_mouvement" />
-            <marker date="1518011685136" expanded="true" signature="431:473" ph="SELECT * FRO... auto_mouvement" />
-            <marker date="1518011685136" expanded="true" signature="431:767" ph="SELECT * FRO... auto_mouvement" />
-            <marker date="1518011685136" expanded="true" signature="809:948" ph="INSERT INTO mouvement... " />
-            <marker date="1518011685136" expanded="true" signature="1894:1933" ph="SELECT solde... compte" />
-            <marker date="1518011685136" expanded="true" signature="2671:2751" ph="UPDATE compte... " />
-            <marker date="1518011685136" expanded="true" signature="3540:3595" ph="UPDATE auto_mouvement... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/compte/mouvement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="443">
-          <caret line="54" column="34" lean-forward="true" selection-start-line="54" selection-start-column="34" selection-end-line="54" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/layout/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="11" column="4" lean-forward="true" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/Service/SessionManager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="51" column="33" lean-forward="true" selection-start-line="51" selection-start-column="33" selection-end-line="51" selection-end-column="33" />
-          <folding />
+          <caret line="4" column="30" lean-forward="false" selection-start-line="4" selection-start-column="30" selection-end-line="4" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/mouvement.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/Service/Mouvement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="true" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/sql/mouvement.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/Service/Compte.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/sql/compte.sql">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <caret line="9" column="47" lean-forward="true" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/Service/AssetManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="3" selection-end-line="1" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/compte/updateMouvement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="10" column="119" lean-forward="true" selection-start-line="10" selection-start-column="119" selection-end-line="10" selection-end-column="119" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/compte/mouvement.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="25" column="48" lean-forward="false" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/compte/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/composer.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/application.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="14" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/Controller/AbstractController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="15" column="46" lean-forward="false" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/core/Layout.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="35" column="5" lean-forward="false" selection-start-line="35" selection-start-column="5" selection-end-line="35" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/Service/AbstractService.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="40" column="20" lean-forward="false" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/core/Module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="35" column="1" lean-forward="false" selection-start-line="35" selection-start-column="1" selection-end-line="35" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/Controller/IndexController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="20" column="7" lean-forward="true" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/core/ModuleException.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/error/404.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="6" lean-forward="false" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/compte-datatable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="611">
+          <caret line="60" column="26" lean-forward="false" selection-start-line="60" selection-start-column="26" selection-end-line="60" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/global.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="14" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="17" column="25" lean-forward="false" selection-start-line="17" selection-start-column="25" selection-end-line="17" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/Service/Utils.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="23" column="32" lean-forward="false" selection-start-line="23" selection-start-column="32" selection-end-line="23" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/Model/CompteModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="645">
+          <caret line="85" column="5" lean-forward="false" selection-start-line="85" selection-start-column="5" selection-end-line="85" selection-end-column="5" />
+          <folding>
+            <marker date="1518773782959" expanded="true" signature="346:399" ph="INSERT INTO compte... " />
+            <marker date="1518773782959" expanded="true" signature="1347:1419" ph="INSERT INTO compte... " />
+            <marker date="1518773782959" expanded="true" signature="2192:2227" ph="SELECT * FRO... compte" />
+            <marker date="1518773782959" expanded="true" signature="2904:2941" ph="SELECT * FRO... compte" />
+            <marker date="1518773782959" expanded="true" signature="3583:3603" ph="SELECT * FRO... compte" />
+            <marker date="1518773782959" expanded="true" signature="4216:4296" ph="UPDATE compte... " />
+            <marker date="1518773782959" expanded="true" signature="5071:5147" ph="UPDATE compte... " />
+            <marker date="1518773782959" expanded="true" signature="5905:5985" ph="UPDATE compte... " />
+            <marker date="1518773782959" expanded="true" signature="7226:7259" ph="DELETE FROM compte... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/Model/AbstractModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="38" column="23" lean-forward="false" selection-start-line="38" selection-start-column="23" selection-end-line="38" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/index/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="68" column="23" lean-forward="false" selection-start-line="68" selection-start-column="23" selection-end-line="68" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/form.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="1" lean-forward="true" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/layout/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="10" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/authentication/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="34" column="14" lean-forward="false" selection-start-line="34" selection-start-column="14" selection-end-line="34" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/View/layout/footer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="52" lean-forward="true" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/Form/Form.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="716">
+          <caret line="79" column="1" lean-forward="true" selection-start-line="79" selection-start-column="1" selection-end-line="79" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/Form/AbstractForm.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Ozyris/core/Router.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+        <state relative-caret-position="356">
+          <caret line="46" column="40" lean-forward="true" selection-start-line="46" selection-start-column="40" selection-end-line="46" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Ozyris/Controller/CompteController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-855">
-          <caret line="109" column="0" lean-forward="true" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
-          <folding>
-            <marker date="1518014123328" expanded="true" signature="3016:3109" ph="..." />
-          </folding>
+        <state relative-caret-position="470">
+          <caret line="112" column="32" lean-forward="false" selection-start-line="112" selection-start-column="32" selection-end-line="112" selection-end-column="32" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/core/Layout.php">
+    <entry file="file://$PROJECT_DIR$/src/Ozyris/core/SessionManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="36" column="1" lean-forward="true" selection-start-line="36" selection-start-column="1" selection-end-line="36" selection-end-column="1" />
-          <folding />
+        <state relative-caret-position="-420">
+          <caret line="91" column="19" lean-forward="false" selection-start-line="91" selection-start-column="19" selection-end-line="91" selection-end-column="19" />
+          <folding>
+            <marker date="1518787646511" expanded="true" signature="4265:4271" ph=" " />
+            <marker date="1518787646511" expanded="true" signature="4271:4277" ph=" " />
+            <marker date="1518787646511" expanded="true" signature="4277:4283" ph=" " />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Ozyris/View/layout/layout.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="52" column="7" lean-forward="true" selection-start-line="52" selection-start-column="7" selection-end-line="52" selection-end-column="7" />
+        <state relative-caret-position="375">
+          <caret line="30" column="12" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="36" selection-end-column="14" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ozyris/Controller/AbstractController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="109" column="35" lean-forward="true" selection-start-line="109" selection-start-column="35" selection-end-line="109" selection-end-column="35" />
-          <folding>
-            <element signature="e#120#143#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

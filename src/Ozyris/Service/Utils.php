@@ -12,26 +12,27 @@ class Utils
 {
 
     /**
-     * Execute un var_dump
+     * PHP debugger
      *
      * @param mixed $value
      * @param bool $die
      */
     public static function debug($value, $die = true)
     {
-        echo '<pre>'; var_dump($value, $_SESSION['test']);
+        echo '<pre>'; var_dump($value);
         echo '<br><br>';
         debug_print_backtrace();
+
         if ($die) {
             echo '</pre>';
-            die;
+            die();
         } else {
-            echo '</pre>';
+            echo '!! End of debug !!</pre>';
         }
     }
 
     /**
-     * Liste toutes les méthodes d'une classe
+     * Display all method from $classname
      *
      * @param object $classname
      */
@@ -39,11 +40,17 @@ class Utils
     {
         $class_methods = get_class_methods($classname);
         echo '<pre>';
+
         foreach ($class_methods as $method_name)
         {
             echo $method_name . '<br/>';
         }
-        die('Fin de récupération des méthodes.');
     }
 
+    public static function convertFormatDateToEu($timestamp)
+    {
+        $date = new \DateTime($timestamp);
+
+        return $date->format('d/m/Y H:i:s');
+    }
 }

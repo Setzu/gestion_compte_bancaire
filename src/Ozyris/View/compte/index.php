@@ -8,7 +8,7 @@
 ?>
 
 <div class="col-md-1">
-    <a href="/index" class="btn btn-default">Retour</a>
+    <a href="/index" class="btn btn-default"><span class="glyphicon glyphicon-home">&nbsp;</span>Retour à l'accueil</a>
 </div>
 <div class="col-md-6 col-md-offset-2 cadre-form">
     <h3 class="title-form">Ajouter un compte : </h3>
