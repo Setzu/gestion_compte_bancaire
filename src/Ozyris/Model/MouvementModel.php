@@ -21,22 +21,22 @@ class MouvementModel extends AbstractModel
      */
     public function insertMouvement(Mouvement $oMouvement)
     {
-        $sql = "INSERT INTO mouvement (id_compte, type_mouvement, montant, libelle, automatic)
-VALUES (:id_compte, :type_mouvement, :montant, :libelle, :automatic)";
+        $sql = "INSERT INTO mouvement (id_compte, type_mouvement, montant, libelle, automatique)
+VALUES (:id_compte, :type_mouvement, :montant, :libelle, :automatique)";
         $stmt = $this->bdd->prepare($sql);
 
         $iIdCompte = $oMouvement->getIdCompte();
         $sTypeMouvement = $oMouvement->getType();
         $iMontant = $oMouvement->getMontant();
         $sLibelle = $oMouvement->getLibelle();
-        $iAutomatic = $oMouvement->getAutomatic();
+        $iAutomatique = $oMouvement->getAutomatic();
 
         try {
             $stmt->bindParam(':id_compte', $iIdCompte);
             $stmt->bindParam(':type_mouvement', $sTypeMouvement);
             $stmt->bindParam(':montant', $iMontant);
             $stmt->bindParam(':libelle', $sLibelle);
-            $stmt->bindParam(':automatic', $iAutomatic);
+            $stmt->bindParam(':automatique', $iAutomatique);
 
             if (!$stmt->execute()) {
                 $aSqlError = $stmt->errorInfo();
@@ -58,8 +58,8 @@ VALUES (:id_compte, :type_mouvement, :montant, :libelle, :automatic)";
      */
     public function insertMouvementByInfosMouvement(array $aInfosMouvement)
     {
-        $sql = "INSERT INTO mouvement (id_compte, type_mouvement, montant, libelle, automatic)
-VALUES (:id_compte, :type_mouvement, :montant, :libelle, :automatic)";
+        $sql = "INSERT INTO mouvement (id_compte, type_mouvement, montant, libelle, automatique)
+VALUES (:id_compte, :type_mouvement, :montant, :libelle, :automatique)";
         $stmt = $this->bdd->prepare($sql);
 
         try {
@@ -67,7 +67,7 @@ VALUES (:id_compte, :type_mouvement, :montant, :libelle, :automatic)";
             $stmt->bindParam(':type_mouvement', $aInfosMouvement['type_mouvement']);
             $stmt->bindParam(':montant', $aInfosMouvement['montant']);
             $stmt->bindParam(':libelle', $aInfosMouvement['libelle']);
-            $stmt->bindParam(':automatic', $aInfosMouvement['automatic']);
+            $stmt->bindParam(':automatique', $aInfosMouvement['automatique']);
 
             if (!$stmt->execute()) {
                 $aSqlError = $stmt->errorInfo();
@@ -88,7 +88,7 @@ VALUES (:id_compte, :type_mouvement, :montant, :libelle, :automatic)";
      * @param array $aInfosMouvement
      * @return bool
      */
-    public function insertAutomaticMouvement($idCompte, array $aInfosMouvement)
+    public function insertAutomatiqueMouvement($idCompte, array $aInfosMouvement)
     {
         $sql = "INSERT INTO auto_mouvement (id_compte, type_mouvement, montant, libelle, jour)
 VALUES (:id_compte, :type_mouvement, :montant, :libelle, :jour)";
@@ -100,6 +100,38 @@ VALUES (:id_compte, :type_mouvement, :montant, :libelle, :jour)";
             $stmt->bindParam(':montant', $aInfosMouvement['montant']);
             $stmt->bindParam(':libelle', $aInfosMouvement['libelle']);
             $stmt->bindParam(':jour', $aInfosMouvement['jour']);
+
+            if (!$stmt->execute()) {
+                $aSqlError = $stmt->errorInfo();
+                $aSqlError['file'] = __FILE__ . ' at line : ' . __LINE__;
+                Logs::add($aSqlError);
+
+                throw new \Exception($aSqlError[2]);
+            }
+        } catch(\Exception $e) {
+            die($e->getMessage());
+        }
+
+        return $stmt->closeCursor();
+    }
+
+    /**
+     * @param array $aInfosMouvement
+     * @return bool
+     */
+    public function insertHistoriqueMouvement(array $aInfosMouvement)
+    {
+        $sql = "INSERT INTO histo_mouvement (id_compte, type_mouvement, montant, libelle, automatique, date_creation)
+VALUES (:id_compte, :type_mouvement, :montant, :libelle, :automatique, :date_creation)";
+        $stmt = $this->bdd->prepare($sql);
+
+        try {
+            $stmt->bindParam(':id_compte', $aInfosMouvement['id_compte']);
+            $stmt->bindParam(':type_mouvement', $aInfosMouvement['type_mouvement']);
+            $stmt->bindParam(':montant', $aInfosMouvement['montant']);
+            $stmt->bindParam(':libelle', $aInfosMouvement['libelle']);
+            $stmt->bindParam(':automatique', $aInfosMouvement['automatique']);
+            $stmt->bindParam(':date_creation', $aInfosMouvement['date_mouvement']);
 
             if (!$stmt->execute()) {
                 $aSqlError = $stmt->errorInfo();
@@ -149,7 +181,7 @@ VALUES (:id_compte, :type_mouvement, :montant, :libelle, :jour)";
      */
     public function selectAllMouvementsByCompteId($idCompte)
     {
-        $sql = "SELECT * FROM mouvement WHERE id_compte = :id_compte";
+        $sql = "SELECT * FROM mouvement WHERE id_compte = :id_compte ORDER BY date_mouvement DESC";
         $stmt = $this->bdd->prepare($sql);
 
         try {
@@ -231,7 +263,7 @@ VALUES (:id_compte, :type_mouvement, :montant, :libelle, :jour)";
      * @param string $type
      * @return bool
      */
-    public function updateMouvementType($id, $type)
+    public function updateType($id, $type)
     {
         $sql = "UPDATE mouvement SET type_mouvement = :type_mouvement WHERE id = :id";
         $stmt = $this->bdd->prepare($sql);
@@ -262,9 +294,9 @@ VALUES (:id_compte, :type_mouvement, :montant, :libelle, :jour)";
      * @param int $montant
      * @return bool
      */
-    public function updateMouvementMontant($id, $montant)
+    public function updateMontant($id, $montant)
     {
-        $sql = "UPDATE mouvement SET numero = :numero WHERE id = :id";
+        $sql = "UPDATE mouvement SET montant = :montant WHERE id = :id";
         $stmt = $this->bdd->prepare($sql);
         $iId = (int) $id;
         $iMontant = (int) $montant;
@@ -293,7 +325,7 @@ VALUES (:id_compte, :type_mouvement, :montant, :libelle, :jour)";
      * @param string $libelle
      * @return bool
      */
-    public function updateMouvementLibelle($id, $libelle)
+    public function updateLibelle($id, $libelle)
     {
         $sql = "UPDATE mouvement SET libelle = :libelle WHERE id = :id";
         $stmt = $this->bdd->prepare($sql);
@@ -321,17 +353,17 @@ VALUES (:id_compte, :type_mouvement, :montant, :libelle, :jour)";
 
     /**
      * @param int $id
-     * @param array $infos
+     * @param array $values
      * @return bool
      */
-    public function updateMouvementById($id, $infos)
+    public function updateMouvementById($id, $values)
     {
-        if (!is_array($infos)) {
+        if (!is_array($values)) {
             return false;
         }
 
-        foreach ($infos as $k => $v) {
-            $update = 'updateMouvement' . ucfirst($k);
+        foreach ($values as $k => $v) {
+            $update = 'update' . ucfirst($k);
             $this->$update((int) $id, $v);
         }
 

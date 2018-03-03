@@ -9,13 +9,29 @@
 namespace Ozyris\core;
 
 
-use Ozyris\Service\AbstractService;
-
-class Layout extends AbstractService
+class Layout
 {
 
+    private $layout;
+
+    public function __construct()
+    {
+        $this->setLayout(__DIR__ . '/../View/layout/layout.php');
+    }
+
+    /**
+     * @return mixed
+     */
     public function getLayout()
     {
-        return include_once __DIR__ . '/../View/layout/layout.php';
+        return $this->layout;
+    }
+
+    /**
+     * @param mixed $layout
+     */
+    public function setLayout($layout)
+    {
+        $this->layout = $layout;
     }
 }

@@ -56,12 +56,13 @@ class CompteModel extends AbstractModel
             return false;
         }
 
-        $sql = "INSERT INTO compte (nom, solde) VALUES (:nom, :solde)";
+        $sql = "INSERT INTO compte (id_user, nom, solde) VALUES (:id_user, :nom, :solde)";
         $stmt = $this->bdd->prepare($sql);
 
         try {
             $stmt->bindParam(':nom', $aInfosCompte['nom']);
             $stmt->bindParam(':solde', $aInfosCompte['solde']);
+            $stmt->bindParam(':id_user', $aInfosCompte['id_user']);
 
             if (!$stmt->execute()) {
                 $aSqlError = $stmt->errorInfo();
@@ -192,7 +193,7 @@ class CompteModel extends AbstractModel
      * @param string $name
      * @return bool
      */
-    public function updateNomCompte($id, $name)
+    public function updateCompteNom($id, $name)
     {
         $sql = "UPDATE compte SET nom = :nom, last_update = CURRENT_TIMESTAMP WHERE id = :id";
         $stmt = $this->bdd->prepare($sql);
@@ -256,16 +257,23 @@ class CompteModel extends AbstractModel
      */
     public function updateCompteById($id, $infos)
     {
+        $return = false;
+
         if (!is_array($infos)) {
-            return false;
+            return $return;
         }
 
         foreach ($infos as $k => $v) {
             $update = 'updateCompte' . ucfirst($k);
-            $this->$update((int) $id, $v);
+
+            if (method_exists($this, $update)) {
+                $this->$update((int)$id, $v);
+
+                $return = true;
+            }
         }
 
-        return true;
+        return $return;
     }
 
     /**

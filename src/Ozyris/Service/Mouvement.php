@@ -71,12 +71,12 @@ class Mouvement extends AbstractService
      * @param array $aInfosMouvement
      * @return bool
      */
-    public function addAutomaticMouvement($idCompte, array $aInfosMouvement)
+    public function addAutomatiqueMouvement($idCompte, array $aInfosMouvement)
     {
         /** @var MouvementModel $oMouvementModel */
         $oMouvementModel = $this->getMouvementModel();
 
-        return $oMouvementModel->insertAutomaticMouvement($idCompte, $aInfosMouvement);
+        return $oMouvementModel->insertAutomatiqueMouvement($idCompte, $aInfosMouvement);
     }
 
     /**

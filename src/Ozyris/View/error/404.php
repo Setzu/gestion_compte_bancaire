@@ -1,7 +1,5 @@
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <div class="page-not-found">
-            <h3>OUPS ! La page demandée n'a pas été trouvée.</h3>
-        </div>
-    </div>
+<div class="col-md-6 col-md-offset-3 cadre-form" style="text-align: center;">
+    <h1>Oups ! Erreur 404</h1>
+    <p>La page demandée est introuvable</p>
+    <a href="/index" class="btn btn-default"><span class="glyphicon glyphicon-home">&nbsp;</span>Retour à l'accueil</a>
 </div>

@@ -16,16 +16,16 @@ class Users extends AbstractService
     protected $email;
     protected $password;
     protected $date_registration;
-    protected $admin = false;
+    protected $admin = 0;
     protected $role = 'member';
 
     /**
      * Users constructor.
      * @param array $aDonnees
      */
-    public function __construct(array $aDonnees)
+    public function __construct(array $aDonnees = [])
     {
-        if (!empty($aDonnees)) {
+        if (is_array($aDonnees) && count($aDonnees) > 0) {
             try {
                 $this->hydrate($this, $aDonnees);
             } catch(\Exception $e) {

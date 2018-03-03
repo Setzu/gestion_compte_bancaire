@@ -29,12 +29,12 @@ abstract class Cron
             } catch (\Exception $e) {
                 $oLog = new Logs();
 
-                return $oLog->insertFileLogs($e->getMessage(), 'cron_logs');
+                return $oLog->add($e->getMessage(), 'cron_logs');
             }
         } else {
             $oLog = new Logs();
 
-            return $oLog->insertFileLogs('The class or method not exist in ' . __FILE__ . ' at line ' . __LINE__, 'cron_logs');
+            return $oLog->add('The class or method not exist in ' . __FILE__ . ' at line ' . __LINE__, 'cron_logs');
         }
     }
 

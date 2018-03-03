@@ -3,8 +3,6 @@
  */
 
 $(document).ready(function() {
-    // TODO : le display-none du datatable empêche le fonctionnement de jquery tabs
-
     // @TODO : ce code n'est pas fonctionnel car il y a déjà un datatable sur index
     // $('#mouvement').dataTable({
     //     "order": [[ 4, "desc" ]],

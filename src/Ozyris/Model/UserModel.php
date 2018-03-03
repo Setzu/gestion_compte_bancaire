@@ -93,7 +93,7 @@ class UserModel extends AbstractModel
      * @return bool
      * @throws \Exception
      */
-    public function ifUserAlreadyExist($value)
+    public function isUserAlreadyExist($value)
     {
         $sql = "SELECT COUNT(username) FROM users WHERE username = :username OR email = :email";
         $stmt = $this->bdd->prepare($sql);

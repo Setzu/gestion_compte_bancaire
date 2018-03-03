@@ -1,12 +1,13 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: david
+ * User: david b.
  * Date: 26/05/16
  * Time: 16:16
  */
 
 namespace Ozyris\Model;
+
 
 abstract class AbstractModel
 {
@@ -44,7 +45,7 @@ abstract class AbstractModel
         $this->bdd = new \PDO($dsn, $user, $password);
 
         if (!$this->bdd) {
-            throw new \Exception('Connexion à la base de donnée impossible.');
+            throw new \Exception('Connexion à la base de données impossible.');
         }
     }
 }

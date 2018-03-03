@@ -8,11 +8,11 @@
 ?>
 
 <div class="col-md-1">
-    <a href="/index" class="btn btn-default">Retour</a>
+    <a href="/index" class="btn btn-default"><span class="glyphicon glyphicon-home">&nbsp;</span>Retour à l'accueil</a>
 </div>
-<div class="col-md-6 col-md-offset-2 cadre-form">
+<div class="col-md-6 col-md-offset-3 cadre-form">
     <h3 class="title-form">Ajouter un mouvement</h3>
-    <form action="/compte/mouvement/<?= urlencode(isset($this->id) ? '$' . $this->id : null); ?>" method="post" role="form" class="form-horizontal">
+    <form action="/compte/mouvement/ <?= urlencode($this->idCompte); ?>" method="post" role="form" class="form-horizontal">
         <div class="form-group">
             <label for="type" class="col-sm-4 control-label">Type </label>
             <div class="col-sm-4">
@@ -23,9 +23,12 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="montant" class="col-sm-4 control-label">Montant (€)</label>
+            <label for="montant" class="col-sm-4 control-label">Montant</label>
             <div class="col-sm-4">
-                <input type="number" name="montant" required="required" placeholder="0" class="form-control">
+                <div class="input-group">
+                    <input type="number" min="0" name="montant" value="<?= $this->mouvement['montant']; ?>" required="required" placeholder="0" class="form-control">
+                    <div class="input-group-addon">&euro;</div>
+                </div>
             </div>
         </div>
         <div class="form-group">

@@ -14,4 +14,3 @@
 <script type="text/javascript" src="/js/mouvement-datatable.js"></script>
 <script type="text/javascript" src="/js/compte-datatable.js"></script>
 <script type="application/javascript" src="/js/mouvement.js"></script>
-

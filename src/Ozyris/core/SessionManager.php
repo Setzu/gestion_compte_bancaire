@@ -1,12 +1,14 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: david
+ * User: david b.
  * Date: 02/06/16
  * Time: 10:14
  */
 
 namespace Ozyris\core;
+
+use Ozyris\Service\Users;
 
 abstract class SessionManager
 {
@@ -17,56 +19,53 @@ abstract class SessionManager
     const FLASH_MESSAGE = 'flashmessage';
     const DANGER = 'danger';
     const SUCCESS = 'success';
-
-    const ERROR_KEY = 'The key must be an integer or string type';
+    const ICON_DANGER = 'glyphicon-remove';
+    const ICON_SUCCESS = 'glyphicon-ok';
+    const DEFAULT_ERROR = 'The %param% must be %type% type in %file% at line %line%';
 
     public function __construct()
     {
-        $this->startSession();
+        self::startSession();
     }
 
     /**
-     * Démarre la session
+     * Start the session
      *
      * @param int $expiration
-     * @return $this
      */
-    public function startSession($expiration = self::DEFAULT_EXPIRATION_TIME)
+    public static function startSession($expiration = self::DEFAULT_EXPIRATION_TIME)
     {
+        $exp = (int) $expiration;
+
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
-            $exp = (int) $expiration;
+            session_cache_expire($exp > 0 ? $exp : self::DEFAULT_EXPIRATION_TIME);
+        } else {
             session_cache_expire($exp > 0 ? $exp : self::DEFAULT_EXPIRATION_TIME);
         }
-
-        return $this;
     }
 
     /**
-     * Enregistre $value en session
+     * Insert $sessionContent in session
      *
-     * @param mixed $keys
+     * @param string $key
      * @param mixed $value
      * @throws \Exception
      */
-    public function setSessionValues($keys, $value = '')
+    public function setSessionValue($key, $value)
     {
-        if(is_int($keys) || is_string($keys)) {
-            $_SESSION[$keys] = $value;
-        } elseif(is_array($keys)) {
-            foreach ($keys as $k => $v) {
-
-                if (!is_string($k) && !is_int($k)) {
-                    throw new \Exception(self::ERROR_KEY);
-                }
-
-                $_SESSION[$k] = $v;
-            }
+        if (!is_string($key)) {
+            throw new \Exception(str_replace('%param%', 'key',
+                str_replace('%type%', 'a string',
+                    str_replace('%file%', __FILE__,
+                        str_replace('%line%', __LINE__, self::DEFAULT_ERROR)))));
         }
+
+        $_SESSION[$key] = $value;
     }
 
     /**
-     * Retourne le user stocké en session
+     * Get user from session
      *
      * @return Users | null
      */
@@ -80,14 +79,12 @@ abstract class SessionManager
     }
 
     /**
-     * Récupère toute la session
+     * Get all session
      *
      * @return array
      */
     public function getSession()
     {
-        $this->startSession();
-
         return $_SESSION;
     }
 
@@ -101,7 +98,10 @@ abstract class SessionManager
     public function getSessionValue($key)
     {
         if (!is_string($key) && !is_int($key)) {
-            throw new \Exception(self::ERROR_KEY);
+            throw new \Exception(str_replace('%param%', 'key',
+                str_replace('%type%', 'a string',
+                    str_replace('%file%', __FILE__,
+                        str_replace('%line%', __LINE__, self::DEFAULT_ERROR)))));
         }
 
         if (array_key_exists($key, $_SESSION)) {
@@ -112,7 +112,7 @@ abstract class SessionManager
     }
 
     /**
-     * Détruit toute la session
+     * Destroy the session
      */
     public function destroySession()
     {
@@ -120,7 +120,7 @@ abstract class SessionManager
     }
 
     /**
-     * Détruit la clé $key en session
+     * Unset the key $key in session
      *
      * @param $key
      * @return $this
@@ -137,42 +137,47 @@ abstract class SessionManager
     }
 
     /**
-     * Stocke les flashmessages en session
+     * Stocke the flashmessages in session
      *
      * @param $message
      * @param bool|true $error
-     * @return $this
+     * @throws \Exception
      */
     public function setFlashMessage($message, $error = true)
     {
         if ($error) {
             $type = self::DANGER;
+            $icon = self::ICON_DANGER;
         } else {
             $type = self::SUCCESS;
+            $icon = self::ICON_SUCCESS;
         }
 
-        $_SESSION[self::FLASH_MESSAGE][$type] = $message;
-
-        return $this;
+        $this->setSessionValue(self::FLASH_MESSAGE, [$type => [
+            'message' => $message,
+            'icon' => $icon
+        ]]);
     }
 
     /**
-     * Affiche le message selon le type, et appelle la méthode destroySession
+     * Display flash messages and removes them from the session
      *
-     * @return SessionManager
+     * @return string
      */
     public function flashMessages()
     {
         $aSession = $this->getSession();
+        $sFlashMessages = '';
 
         if (array_key_exists(self::FLASH_MESSAGE, $aSession)) {
-            echo '<ul>';
-            foreach ($_SESSION[self::FLASH_MESSAGE] as $type => $message) {
-                echo "<div class='flashmessage alert alert-$type'><li>$message</li></div>";
+            foreach ($aSession[self::FLASH_MESSAGE] as $type => $aContent) {
+                $sFlashMessages .= "<div class='alert alert-$type'><span class='glyphicon " . $aContent['icon'] .
+                    "' aria-hidden='true'></span>&nbsp;&nbsp;&nbsp;" . $aContent['message'] . '</div><br>';
             }
-            echo '</ul>';
         }
 
-        return $this->destroySessionValue(self::FLASH_MESSAGE);
+        $this->destroySessionValue(self::FLASH_MESSAGE);
+
+        return $sFlashMessages;
     }
 }
